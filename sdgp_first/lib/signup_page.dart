@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sdgp_first/add_meal_page.dart';
 import 'package:sdgp_first/auth_services.dart';
-import 'package:sdgp_first/home_page.dart';
 import 'package:sdgp_first/login_page.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 class SignupPage extends StatefulWidget {

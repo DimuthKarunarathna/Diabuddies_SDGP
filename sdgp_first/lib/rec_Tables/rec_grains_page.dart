@@ -17,7 +17,8 @@ class _grainssState extends State<grains> {
           appBar: AppBar(
             title: const Text('Nuts,Grains & Beans'),
           ),
-          body: ListView(children: <Widget>[
+          body: ListView(
+              children: <Widget>[
             const Center(
                 child: Text(
                   'You Must Include In Your Diabetes Diet',

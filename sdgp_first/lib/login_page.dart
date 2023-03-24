@@ -8,7 +8,6 @@ import 'package:sdgp_first/signup_page.dart';
 
 import 'add_meal_page.dart';
 import 'auth_services.dart';
-import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -74,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
       )
       );
     }
-    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => FirstMealPage()));
   }
 
 

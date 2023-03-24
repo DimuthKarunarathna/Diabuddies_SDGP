@@ -4,6 +4,7 @@ import 'package:sdgp_first/image_page.dart';
 import 'package:sdgp_first/login_page.dart';
 import 'package:sdgp_first/user_meal_page.dart';
 import 'package:sdgp_first/food_rec_page.dart';
+import 'package:sdgp_first/user_meal_page2.dart';
 
 class FirstMealPage extends StatefulWidget {
   const FirstMealPage({Key? key}) : super(key: key);
@@ -14,6 +15,19 @@ class FirstMealPage extends StatefulWidget {
 
 class _FirstMealPageState extends State<FirstMealPage> {
   final _auth2=FirebaseAuth.instance;
+  int currentBarIndex=0;
+
+  void _tapNavigation(int tappedIndex){
+    setState(() {
+      currentBarIndex=tappedIndex;
+    });
+
+    switch(tappedIndex){
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>SecondMealPage()));
+        break;
+    }
+  }
 
   @override
   void initState() {
@@ -155,7 +169,9 @@ class _FirstMealPageState extends State<FirstMealPage> {
         ),
 
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        currentIndex: currentBarIndex,
+        onTap: _tapNavigation,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -163,7 +179,8 @@ class _FirstMealPageState extends State<FirstMealPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Patient Info',
+            label: 'Patient',
+            backgroundColor: Colors.lightBlue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.schedule),
