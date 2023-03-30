@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sdgp_first/login_Form/smokingHis.dart';
 
+import '../add_meal_page.dart';
 import 'ageInput.dart';
 import 'heightInput.dart';
 
@@ -23,6 +24,23 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
   int? _weight;
   int? _smoke;
   double? bmi;
+
+  int _selectedIndex=0;
+
+  void _onBarItemTapped(int index){
+    setState(() {
+      _selectedIndex=index;
+    });
+
+    switch(index){
+      case 0:
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>FirstMealPage()));
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
+        break;
+    }
+  }
 
 
   void _selectGender(String gender) {
@@ -518,6 +536,8 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             label: 'Notifications',
           ),
         ],
+        currentIndex: _selectedIndex,
+        onTap: _onBarItemTapped,
       ),
 
     );

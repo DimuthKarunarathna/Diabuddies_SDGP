@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sdgp_first/image_page.dart';
+import 'package:sdgp_first/login_Form/patientDetails.dart';
 import 'package:sdgp_first/login_page.dart';
 import 'package:sdgp_first/user_meal_page.dart';
 import 'package:sdgp_first/food_rec_page.dart';
@@ -14,6 +15,22 @@ class FirstMealPage extends StatefulWidget {
 
 class _FirstMealPageState extends State<FirstMealPage> {
   final _auth2=FirebaseAuth.instance;
+  int _selectedIndex=0;
+
+  void _onBarItemTapped(int index){
+    setState(() {
+      _selectedIndex=index;
+    });
+
+    switch(index){
+      case 0:
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>FirstMealPage()));
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
+        break;
+    }
+  }
 
   @override
   void initState() {
@@ -141,7 +158,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
                         ), // Use a network image instead of a local asset
                         label: const Text(
                           'User Meal',
-                          style: TextStyle(fontSize: 25),
+                          style: TextStyle(fontSize: 20),
                         ),
                       ),
                     ),
@@ -154,7 +171,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
                     ),
                     child: SizedBox(
                       //g
-                      height: 100,
+                      height: 90,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
@@ -207,6 +224,8 @@ class _FirstMealPageState extends State<FirstMealPage> {
             label: 'Notifications',
           ),
         ],
+        currentIndex: _selectedIndex,
+        onTap: _onBarItemTapped,
       ),
     );
   }
