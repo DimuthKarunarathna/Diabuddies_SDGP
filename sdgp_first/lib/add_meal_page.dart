@@ -64,86 +64,115 @@ class _FirstMealPageState extends State<FirstMealPage> {
         body: ListView(
           children: [
             Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                          "img/dia_pic.jpg"
+                      ),
+                      fit: BoxFit.cover// otherwise yhere is a space in corners
+                  )
+              ),
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 10,
+                  ),
                   const Text(
                     'User Meal Details',
                     style: TextStyle(fontSize: 25),
                   ),
                   Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXTxXbJtRTJzcisw_L73_xlovINmbzDtcGEQ&usqp=CAU', // Replace with your image URL
-                    width: 250,
-                    height: 250,
+                    width: 200,
+                    height: 200,
                   ),
-                  SizedBox(
-                    height: 100,
-                    width: 300,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (builder)=>ImageChoosePage()));
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                      ),
-                      icon: const IconTheme(
-                        data: IconThemeData(size: 60,color: Colors.lightBlue),
-                        child: Icon(Icons.camera_alt_outlined),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: SizedBox(
+                      height: 90,
+                      width: 300,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>ImageChoosePage()));
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                        ),
+                        icon: const IconTheme(
+                          data: IconThemeData(size: 60,color: Colors.lightBlue),
+                          child: Icon(Icons.camera_alt_outlined),
 
-                      ), // Use a network image instead of a local asset
-                      label: const Text(
-                        'Add Meal Image',
-                        style: TextStyle(fontSize: 20),
+                        ), // Use a network image instead of a local asset
+                        label: const Text(
+                          'Add Meal Image',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    //g
-                    height: 100,
-                    width: 300,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (builder)=>UserMeal()));
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                      ),
-                      icon: const IconTheme(
-                        data: IconThemeData(size: 60,color: Colors.lightBlue),
-                        child: Icon(Icons.fastfood_rounded),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: SizedBox(
+                      //g
+                      height: 90,
+                      width: 300,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>UserMeal()));
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                        ),
+                        icon: const IconTheme(
+                          data: IconThemeData(size: 60,color: Colors.lightBlue),
+                          child: Icon(Icons.fastfood_rounded),
 
-                      ), // Use a network image instead of a local asset
-                      label: const Text(
-                        'User Meal',
-                        style: TextStyle(fontSize: 25),
+                        ), // Use a network image instead of a local asset
+                        label: const Text(
+                          'User Meal',
+                          style: TextStyle(fontSize: 25),
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 10,),
-                  SizedBox(
-                    //g
-                    height: 100,
-                    width: 300,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodRecPage()));
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                      ),
-                      icon: const IconTheme(
-                        data: IconThemeData(size: 60,color: Colors.lightBlue),
-                        child: Icon(Icons.fastfood_outlined),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: SizedBox(
+                      //g
+                      height: 100,
+                      width: 300,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodRecPage()));
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                        ),
+                        icon: const IconTheme(
+                          data: IconThemeData(size: 60,color: Colors.lightBlue),
+                          child: Icon(Icons.fastfood_outlined),
 
-                      ), // Use a network image instead of a local asset
-                      label: const Text(
-                        'Recommended Foods',
-                        style: TextStyle(fontSize: 20),
+                        ), // Use a network image instead of a local asset
+                        label: const Text(
+                          'Recommended Foods',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                   ),

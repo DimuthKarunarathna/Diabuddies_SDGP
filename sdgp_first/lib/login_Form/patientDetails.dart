@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_form/ageInput.dart';
-import 'package:login_form/smokingHis.dart';
-import 'package:login_form/heightInput.dart';
+import 'package:sdgp_first/login_Form/smokingHis.dart';
+
+import 'ageInput.dart';
+import 'heightInput.dart';
 
 
 class PatientDetailsForm extends StatefulWidget {
