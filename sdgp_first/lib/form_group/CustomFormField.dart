@@ -40,14 +40,35 @@ late String glucose;
 final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 List<String> _mealUnits = ['g', 'ml'];
-String _selectedMealUnits_1 = 'g';
-String _selectedMealUnits_2 = 'g';
-String _selectedMealUnits_3 = 'g';
-String _selectedMealUnits_4 = 'g';
-String _selectedMealUnits_5 = 'g';
-String _selectedMealUnits_6 = 'g';
-String _selectedMealUnits_7 = 'g';
-String _selectedMealUnits_8 = 'g';
+String selectedMealUnits_1 = 'g';
+String selectedMealUnits_2 = 'g';
+String selectedMealUnits_3 = 'g';
+String selectedMealUnits_4 = 'g';
+String selectedMealUnits_5 = 'g';
+String selectedMealUnits_6 = 'g';
+String selectedMealUnits_7 = 'g';
+String selectedMealUnits_8 = 'g';
+
+void disposeControllers(){
+  meal1.clear();
+  meal2.clear();
+  meal3.clear();
+  meal4.clear();
+  meal5.clear();
+  meal6.clear();
+  meal7.clear();
+  meal8.clear();
+
+  weight1.clear();
+  weight2.clear();
+  weight3.clear();
+  weight4.clear();
+  weight5.clear();
+  weight6.clear();
+  weight7.clear();
+  weight8.clear();
+
+}
 
 Container customFormField1(){
   return Container(
@@ -125,7 +146,7 @@ Container customFormField1(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_1,
+                    value: selectedMealUnits_1,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -133,7 +154,7 @@ Container customFormField1(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_1 = value!;
+                      selectedMealUnits_1 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -225,7 +246,7 @@ Container customFormField2(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_2,
+                    value: selectedMealUnits_2,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -233,7 +254,7 @@ Container customFormField2(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_2 = value!;
+                      selectedMealUnits_2 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -325,7 +346,7 @@ Container customFormField3(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_3,
+                    value: selectedMealUnits_3,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -333,7 +354,7 @@ Container customFormField3(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_3 = value!;
+                      selectedMealUnits_3 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -426,7 +447,7 @@ Container customFormField4(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_4,
+                    value: selectedMealUnits_4,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -434,7 +455,7 @@ Container customFormField4(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_4 = value!;
+                      selectedMealUnits_4 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -527,7 +548,7 @@ Container customFormField5(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_5,
+                    value: selectedMealUnits_5,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -535,7 +556,7 @@ Container customFormField5(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_5 = value!;
+                      selectedMealUnits_5 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -627,7 +648,7 @@ Container customFormField6(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_6,
+                    value: selectedMealUnits_6,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -635,7 +656,7 @@ Container customFormField6(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_6 = value!;
+                      selectedMealUnits_6 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -728,7 +749,7 @@ Container customFormField7(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_7,
+                    value: selectedMealUnits_7,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -736,7 +757,7 @@ Container customFormField7(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_7 = value!;
+                      selectedMealUnits_7 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -829,7 +850,7 @@ Container customFormField8(){
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
-                    value: _selectedMealUnits_8,
+                    value: selectedMealUnits_8,
                     items: _mealUnits.map((String mealType) {
                       return DropdownMenuItem<String>(
                         value: mealType,
@@ -837,7 +858,7 @@ Container customFormField8(){
                       );
                     }).toList(),
                     onChanged: (String? value) {
-                      _selectedMealUnits_8 = value!;
+                      selectedMealUnits_8 = value!;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
