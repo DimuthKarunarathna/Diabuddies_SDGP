@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sdgp_first/login_Form/smokingHis.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../add_meal_page.dart';
 import 'ageInput.dart';
 import 'heightInput.dart';
@@ -12,9 +13,47 @@ class PatientDetailsForm extends StatefulWidget {
 }
 
 class _PatientDetailsFormState extends State<PatientDetailsForm> {
+  final _auth2=FirebaseAuth.instance;
+  final firestore=FirebaseFirestore.instance;
 
+  Future<bool> doesNameAlreadyExist(String name) async {//checkin if the user already added values
+    final QuerySnapshot result = await FirebaseFirestore.instance
+        .collection('company')
+        .where('name', isEqualTo: name)
+        .limit(1)
+        .get();
+    final List<DocumentSnapshot> documents = result.docs;
+    return documents.length == 1;
+  }
 
-  String _gender = 'male';
+  Future<void> checkUser() async {
+    if(await doesNameAlreadyExist(_auth2.currentUser?.email ?? "")){
+    showDialog(
+    context: context,
+    builder: (BuildContext context) {
+    return AlertDialog(
+    title: Text('you are already added the values'),
+    content: Text('Please click ok button'),
+    actions: [
+    TextButton(
+    onPressed: () {
+    Navigator.of(context).pop();
+    },
+    child: Text('OK'),
+    ),
+    ],
+    );
+    },
+    );
+    }
+  }
+
+  @override
+  initState() {
+   getCurrentUser();
+  }
+
+  String _gender = 'female';
   String? _diabeticType;
   String? _activityLevel;
   String? _alcoholConsumption;
@@ -26,6 +65,27 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
   double? bmi;
 
   int _selectedIndex=0;
+
+  void getCurrentUser() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {//we are using authStateChanges bcs FireBaseauth.instance.currentUser doesnt availabe for immediately when sign in with google
+      //but FireBaseauth.instance.currentUser fine when sign in using email and password instead of google sign in
+      if (user != null) {
+        // In this code User is signed in, you can access the user object via `currentUser` or `user` parameter.
+        final user=_auth2.currentUser;//it will null if anyone not signed in
+        print(user!.email);
+        print('User is signed in!');
+      } else {
+        // User is signed out.
+        print('User is signed out!');
+      }
+    });
+    // if(user!=null){
+    //   print(user.email);
+    // }else{
+    //   print("there is no email");
+    // }
+  }
+
 
   void _onBarItemTapped(int index){
     setState(() {
@@ -203,6 +263,22 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
         },
       );
     } else {
+      firestore.collection("UserDetails").add({
+        'activity':_activityLevel,
+        'age':_age,
+        'alcohol':_alcoholConsumption,
+        'bmi':bmi,
+        'gender':_gender,
+        'height':{
+          'feet':_feet,
+          'inches':_inches
+        },
+        'smoking':_smoke,
+        'type':_diabeticType,
+        'user':_auth2.currentUser?.email,
+        'weight': _weight,
+
+      });
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -221,6 +297,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
                 Text('Activity Level: $_activityLevel'),
                 Text('Alcohol Consumption: $_alcoholConsumption'),
                 Text('BMI: ${bmi?.toStringAsFixed(2)}'),
+                Text('User ${_auth2.currentUser?.email}')
               ],
             ),
             actions: [
@@ -302,9 +379,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      backgroundColor: _gender == 'male'
-                          ? Colors.blue.withOpacity(0.3)
-                          : null,
+                      backgroundColor: _gender == 'male' ?  Colors.blue : Colors.blue.withOpacity(0.3),
                       child: Icon(Icons.male),
                     ),
                     SizedBox(height: 5),
@@ -318,8 +393,8 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
                   children: [
                     CircleAvatar(
                       backgroundColor: _gender == 'female'
-                          ? Colors.blue.withOpacity(0.3)
-                          : null,
+                          ? Colors.blue
+                          : Colors.blue.withOpacity(0.3),
                       child: Icon(Icons.female),
                     ),
                     SizedBox(height: 5),
