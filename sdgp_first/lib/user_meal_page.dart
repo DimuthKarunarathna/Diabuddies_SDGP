@@ -102,17 +102,17 @@ class _UserMealState extends State<UserMeal> {
                       if (count == 6) {
                         forms.add(customFormField6());
                         setState(() {});
-                        print(meal5.text);
+                        print(meal6.text);
                       }
                       if (count == 7) {
                         forms.add(customFormField7());
                         setState(() {});
-                        print(meal5.text);
+                        print(meal7.text);
                       }
                       if (count == 8) {
                         forms.add(customFormField8());
                         setState(() {});
-                        print(meal5.text);
+                        print(meal8.text);
                       }
                     },
                     child: const Text("Add")),

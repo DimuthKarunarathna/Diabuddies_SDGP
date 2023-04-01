@@ -29,8 +29,8 @@ class _SmokeInputWidgetState extends State<SmokeInputWidget> {
       children: [
         Column(
           children: [
-            Text('Smoking History'),
-            SizedBox(height: 10),
+            const Text('Smoking History'),
+            const SizedBox(height: 10),
             Container(
               width: 100,
               child: TextField(
