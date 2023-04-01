@@ -263,12 +263,12 @@ Container customFormField3(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Meal',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal3,
@@ -293,12 +293,12 @@ Container customFormField3(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Weight',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: weight3,
@@ -323,9 +323,9 @@ Container customFormField3(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                // const Text('Unit ',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
@@ -369,7 +369,7 @@ Container customFormField4(){
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal4,
@@ -399,7 +399,7 @@ Container customFormField4(){
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
                 padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: weight4,

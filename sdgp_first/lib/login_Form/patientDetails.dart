@@ -15,42 +15,69 @@ class PatientDetailsForm extends StatefulWidget {
 class _PatientDetailsFormState extends State<PatientDetailsForm> {
   final _auth2=FirebaseAuth.instance;
   final firestore=FirebaseFirestore.instance;
+  bool checkUserNotAvailable=true;
 
-  Future<bool> doesNameAlreadyExist(String name) async {//checkin if the user already added values
-    final QuerySnapshot result = await FirebaseFirestore.instance
-        .collection('company')
-        .where('name', isEqualTo: name)
+  Future<bool> doesNameAlreadyExist(String user) async {//checking whether if the user already added values
+    final QuerySnapshot result = await FirebaseFirestore.instance// it perform operations on the documents returned by a query to a collection or sub collection.
+        .collection('UserDetails')
+        .where('user', isEqualTo: user)
         .limit(1)
         .get();
     final List<DocumentSnapshot> documents = result.docs;
     return documents.length == 1;
   }
 
-  Future<void> checkUser() async {
-    if(await doesNameAlreadyExist(_auth2.currentUser?.email ?? "")){
-    showDialog(
-    context: context,
-    builder: (BuildContext context) {
-    return AlertDialog(
-    title: Text('you are already added the values'),
-    content: Text('Please click ok button'),
-    actions: [
-    TextButton(
-    onPressed: () {
-    Navigator.of(context).pop();
-    },
-    child: Text('OK'),
-    ),
-    ],
-    );
-    },
-    );
+  Future<void> deleteUserFromDb(String user) async {
+    CollectionReference collection=FirebaseFirestore.instance.collection("UserDetails");// accessing to the collection named UserDetails
+    QuerySnapshot query=await collection.where('user', isEqualTo: user).get();//comparing with user name
+
+    if(query.docs.isNotEmpty){
+      DocumentReference docInstance=query.docs.first.reference; //getting the user's document
+      await docInstance.delete();// simply deleting
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Your details were deleted add new details")));
     }
   }
+
+  Future<void> checkDbUser() async {
+    if(await doesNameAlreadyExist(_auth2.currentUser?.email ?? "")){
+      checkUserNotAvailable=false;
+      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have already added values")));
+      showDialog( //Error Validation
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('You have already added details'),
+            content: Text(
+                'Do you need to change details'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  deleteUserFromDb(_auth2.currentUser?.email ?? "");
+                  checkUserNotAvailable=true;
+                  Navigator.of(context).pop();
+                },
+                child: Text('Yes'),
+              ),
+              TextButton(
+                onPressed: () {
+                  checkUserNotAvailable=false;
+                  Navigator.push(context, MaterialPageRoute(builder: (builder)=>FirstMealPage()));
+                },
+                child: Text('No'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+
 
   @override
   initState() {
    getCurrentUser();
+   checkDbUser();
   }
 
   String _gender = 'female';
@@ -79,11 +106,6 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
         print('User is signed out!');
       }
     });
-    // if(user!=null){
-    //   print(user.email);
-    // }else{
-    //   print("there is no email");
-    // }
   }
 
 
@@ -95,9 +117,6 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
     switch(index){
       case 0:
         Navigator.push(context, MaterialPageRoute(builder: (builder)=>FirstMealPage()));
-        break;
-      case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
         break;
     }
   }
@@ -263,54 +282,61 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
         },
       );
     } else {
-      firestore.collection("UserDetails").add({
-        'activity':_activityLevel,
-        'age':_age,
-        'alcohol':_alcoholConsumption,
-        'bmi':bmi,
-        'gender':_gender,
-        'height':{
-          'feet':_feet,
-          'inches':_inches
-        },
-        'smoking':_smoke,
-        'type':_diabeticType,
-        'user':_auth2.currentUser?.email,
-        'weight': _weight,
+      if(checkUserNotAvailable){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Details saved successfully")));
+        firestore.collection("UserDetails").add({
+          'activity':_activityLevel,
+          'age':_age,
+          'alcohol':_alcoholConsumption,
+          'bmi':bmi,
+          'gender':_gender,
+          'height':{
+            'feet':_feet,
+            'inches':_inches
+          },
+          'smoking':_smoke,
+          'type':_diabeticType,
+          'user':_auth2.currentUser?.email,
+          'weight': _weight,
 
-      });
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Details'),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Gender: $_gender'),
-                Text('Diabetic Type: $_diabeticType'),
-                Text('Age: $_age'),
-                Text('Weight: $_weight'),
-                Text('Height: ${_feet ?? 0} feet ${_inches ?? 0} inches'),
-                Text('Smoking History: $_smoke'),
-                Text('Activity Level: $_activityLevel'),
-                Text('Alcohol Consumption: $_alcoholConsumption'),
-                Text('BMI: ${bmi?.toStringAsFixed(2)}'),
-                Text('User ${_auth2.currentUser?.email}')
-              ],
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('OK'),
+        });
+
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Details'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Gender: $_gender'),
+                  Text('Diabetic Type: $_diabeticType'),
+                  Text('Age: $_age'),
+                  Text('Weight: $_weight'),
+                  Text('Height: ${_feet ?? 0} feet ${_inches ?? 0} inches'),
+                  Text('Smoking History: $_smoke'),
+                  Text('Activity Level: $_activityLevel'),
+                  Text('Alcohol Consumption: $_alcoholConsumption'),
+                  Text('BMI: ${bmi?.toStringAsFixed(2)}'),
+                  Text('User ${_auth2.currentUser?.email}')
+                ],
               ),
-            ],
-          );
-        },
-      );
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>FirstMealPage()));
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+      else{
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("you have already added the details")));
+      }
     }
   }
 
@@ -596,7 +622,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Patient Info',
+            label: 'PatientInfo',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.schedule),
