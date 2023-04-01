@@ -38,8 +38,10 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
     }
   }
 
-  Future<void> checkDbUser() async {
+  void checkDbUser() async {
+    print("chack a");
     if(await doesNameAlreadyExist(_auth2.currentUser?.email ?? "")){
+      print("chack b");
       checkUserNotAvailable=false;
       // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You have already added values")));
       showDialog( //Error Validation

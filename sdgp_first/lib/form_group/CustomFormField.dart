@@ -55,21 +55,21 @@ void disposeControllers(){
 
 Container customFormField1(){
   return Container(
-    height: 120,
+    height: 90,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text('Meal',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(6),
+                // padding: const EdgeInsets.all(6),
                 child: TextField(
                   controller: meal1,
                   decoration: InputDecoration(
@@ -96,10 +96,10 @@ Container customFormField1(){
               const Text('Weight',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(6),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight1,
                   decoration: InputDecoration(
@@ -155,21 +155,21 @@ Container customFormField1(){
 }
 Container customFormField2(){
   return Container(
-    height: 200,
+    height: 90,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //const Text('Meal',
                 //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(6),
+                // padding: const EdgeInsets.all(6),
                 child: TextField(
                   controller: meal2,
                   decoration: InputDecoration(
@@ -196,10 +196,10 @@ Container customFormField2(){
               //const Text('Weight',
                 //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(6),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight2,
                   decoration: InputDecoration(
@@ -255,21 +255,21 @@ Container customFormField2(){
 }
 Container customFormField3(){
   return Container(
-    height: 120,
+    height: 90,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // const Text('Meal',
               //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(10),
+                // padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal3,
                   decoration: InputDecoration(
@@ -296,10 +296,10 @@ Container customFormField3(){
               // const Text('Weight',
               //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight3,
                   decoration: InputDecoration(
@@ -356,21 +356,21 @@ Container customFormField3(){
 }
 Container customFormField4(){
   return Container(
-    height: 200,
+    height: 90,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Meal',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(10),
+                // padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal4,
                   decoration: InputDecoration(
@@ -394,13 +394,13 @@ Container customFormField4(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Weight',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight4,
                   decoration: InputDecoration(
@@ -424,9 +424,9 @@ Container customFormField4(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                // const Text('Unit ',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
@@ -456,22 +456,22 @@ Container customFormField4(){
 }
 Container customFormField5(){
   return Container(
-    height: 120,
+    height: 90,
     color: Colors.grey.shade300,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Meal',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                // padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal5,
                   decoration: InputDecoration(
@@ -495,13 +495,13 @@ Container customFormField5(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Weight',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight5,
                   decoration: InputDecoration(
@@ -525,9 +525,9 @@ Container customFormField5(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                // const Text('Unit ',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
@@ -557,21 +557,21 @@ Container customFormField5(){
 }
 Container customFormField6(){
   return Container(
-    height: 200,
+    height: 90,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Meal',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                // padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal6,
                   decoration: InputDecoration(
@@ -595,13 +595,13 @@ Container customFormField6(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Weight',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight6,
                   decoration: InputDecoration(
@@ -625,9 +625,9 @@ Container customFormField6(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                // const Text('Unit ',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
@@ -657,22 +657,22 @@ Container customFormField6(){
 }
 Container customFormField7(){
   return Container(
-    height: 120,
+    height: 90,
     color: Colors.grey.shade300,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Meal',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                // padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal7,
                   decoration: InputDecoration(
@@ -696,13 +696,13 @@ Container customFormField7(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Weight',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight7,
                   decoration: InputDecoration(
@@ -726,9 +726,9 @@ Container customFormField7(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                // const Text('Unit ',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
@@ -759,21 +759,21 @@ Container customFormField7(){
 }
 Container customFormField8(){
   return Container(
-    height: 200,
+    height: 90,
     child: Row(
       children: [
         Expanded(
-          flex: 3,
+          flex: 4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Meal',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 280,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                // padding: const EdgeInsets.all(10),
                 child: TextField(
                   controller: meal8,
                   decoration: InputDecoration(
@@ -797,13 +797,13 @@ Container customFormField8(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              // const Text('Weight',
+              //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
-                width: 180,
+                width: 80,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.only(left:2 ),
                 child: TextField(
                   controller: weight8,
                   decoration: InputDecoration(
@@ -827,9 +827,9 @@ Container customFormField8(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                // const Text('Unit ',
+                //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
