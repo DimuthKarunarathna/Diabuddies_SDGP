@@ -2,40 +2,23 @@
 import 'package:flutter/material.dart';
 
 TextEditingController meal1 = TextEditingController();
-late String meal_1;
 TextEditingController weight1 = TextEditingController();
-late String weight_1;
 TextEditingController meal2 = TextEditingController();
-late String meal_2;
 TextEditingController weight2 = TextEditingController();
-late String weight_2;
 TextEditingController meal3 = TextEditingController();
-late String meal_3;
 TextEditingController weight3 = TextEditingController();
-late String weight_3;
 TextEditingController meal4 = TextEditingController();
-late String meal_4;
 TextEditingController weight4 = TextEditingController();
-late String weight_4;
 TextEditingController meal5 = TextEditingController();
-late String meal_5;
 TextEditingController weight5 = TextEditingController();
-late String weight_5;
 TextEditingController meal6 = TextEditingController();
-late String meal_6;
 TextEditingController weight6 = TextEditingController();
-late String weight_6;
 TextEditingController meal7 = TextEditingController();
-late String meal_7;
 TextEditingController weight7 = TextEditingController();
-late String weight_7;
 TextEditingController meal8 = TextEditingController();
-late String meal_8;
 TextEditingController weight8 = TextEditingController();
-late String weight_8;
 
 TextEditingController unit_1 = TextEditingController();
-late String glucose;
 
 final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -85,8 +68,8 @@ Container customFormField1(){
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(6),
                 child: TextField(
                   controller: meal1,
                   decoration: InputDecoration(
@@ -115,8 +98,8 @@ Container customFormField1(){
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(6),
                 child: TextField(
                   controller: weight1,
                   decoration: InputDecoration(
@@ -180,13 +163,13 @@ Container customFormField2(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              //const Text('Meal',
+                //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(6),
                 child: TextField(
                   controller: meal2,
                   decoration: InputDecoration(
@@ -210,13 +193,13 @@ Container customFormField2(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              //const Text('Weight',
+                //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
                 width: 180,
                 height: 60,
-                margin: const EdgeInsets.all(10),
-                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(2),
+                padding: const EdgeInsets.all(6),
                 child: TextField(
                   controller: weight2,
                   decoration: InputDecoration(
@@ -240,9 +223,9 @@ Container customFormField2(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                //const Text('Unit ',
+                  //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                //),
                 SizedBox(
                   width: 80,
                   child: DropdownButtonFormField<String>(
