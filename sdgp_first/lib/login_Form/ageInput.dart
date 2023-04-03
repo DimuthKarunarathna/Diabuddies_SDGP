@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 class AgeInputWidget extends StatefulWidget {
   final void Function(int age, int weight) onAgeChanged;
 
-  const AgeInputWidget({Key? key, required this.onAgeChanged})
-      : super(key: key);
+  const AgeInputWidget({Key? key, required this.onAgeChanged}) : super(key: key);
 
   @override
   _AgeInputWidgetState createState() => _AgeInputWidgetState();

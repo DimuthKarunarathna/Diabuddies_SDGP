@@ -23,9 +23,6 @@ class _FirstMealPageState extends State<FirstMealPage> {
     });
 
     switch(index){
-      case 0:
-        Navigator.push(context, MaterialPageRoute(builder: (builder)=>FirstMealPage()));
-        break;
       case 1:
         Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
         break;

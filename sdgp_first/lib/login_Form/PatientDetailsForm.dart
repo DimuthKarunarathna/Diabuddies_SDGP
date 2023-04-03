@@ -8,9 +8,9 @@ class PatientDetailsForm extends StatefulWidget {
 }
 
 class _PatientDetailsFormState extends State<PatientDetailsForm> {
-  int _age = 18;
-  double _height = 160.0;
-  double _weight = 60.0;
+  int _age = 0;
+  double _height = 0.0;
+  double _weight = 0.0;
   String _gender = '';
   String _diabetesType = '';
   String _activityLevel = '';
