@@ -209,8 +209,8 @@ class _UserMealState extends State<UserMeal> {
         Uri.parse('https://trackapi.nutritionix.com/v2/natural/nutrients');
     final headers = {
       'Content-Type': 'application/json',
-      'x-app-id': '2d640127',
-      'x-app-key': '15e78cdde5473d4ccd1c1299749e0463',
+      'x-app-id': 'e85e39d9',
+      'x-app-key': 'cdbb636da69a0dc889cb6a27b8264b38',
     };
     final query = jsonEncode({'query': ' $foodName $quantity $unit'});
     final response = await http.post(url, headers: headers, body: query);
