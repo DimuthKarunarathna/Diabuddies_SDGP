@@ -15,22 +15,25 @@ class LinearModel extends StatefulWidget {
 
 class _PredModelState extends State<LinearModel> {
   late final List<int> nutrientData;
-
   _PredModelState({required this.nutrientData});
 
   var predValue = "";
+  int totalCarbAmount = 0;
+  int totalCalorieAmount = 0;
+  int totalFatAmount = 0;
+  int totalFiberAmount = 0;
+  int totalProteinAmount = 0;
+  int currentBGL = 0;
+
   @override
   void initState() {
     super.initState();
     predValue = "click predict button";
+    predData();
   }
 
   Future<void> predData() async {
     final interpreter = await Interpreter.fromAsset('linear_model1.tflite');
-    var input = [
-      [66.83, 19.80, 0.81, 1.00, 2.66, 77, 118.8]
-    ];
-
     print("nutrient data list in screen 2 : $nutrientData");
 
     List<num> numList =
@@ -42,6 +45,13 @@ class _PredModelState extends State<LinearModel> {
     var output = List.filled(1, 0).reshape([1, 1]);
     interpreter.run(floatList, output);
     print("new BGL : ${output[0][0]}");
+
+    totalCarbAmount = nutrientData[0];
+    totalCalorieAmount = nutrientData[1];
+    totalFatAmount = nutrientData[2];
+    totalFiberAmount = nutrientData[3];
+    totalProteinAmount = nutrientData[4];
+    currentBGL = nutrientData[5];
 
     setState(() {
       predValue = output[0][0].toString();
@@ -59,17 +69,32 @@ class _PredModelState extends State<LinearModel> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 12),
-            MaterialButton(
-              color: Colors.blue,
-              onPressed: predData,
-              child: const Text(
-                "predict",
-                style: TextStyle(fontSize: 25),
-              ),
-            ),
-            const SizedBox(height: 12),
             Text(
-              "Predicted value :  $predValue ",
+              "Carbs :  $totalCarbAmount ",
+              style: const TextStyle(color: Colors.green, fontSize: 17),
+            ),
+            Text(
+              "Calories :  $totalCalorieAmount ",
+              style: const TextStyle(color: Colors.green, fontSize: 17),
+            ),
+            Text(
+              "Fat :  $totalFatAmount ",
+              style: const TextStyle(color: Colors.green, fontSize: 17),
+            ),
+            Text(
+              "Fiber :  $totalFiberAmount ",
+              style: const TextStyle(color: Colors.green, fontSize: 17),
+            ),
+            Text(
+              "Protein :  $totalProteinAmount ",
+              style: const TextStyle(color: Colors.green, fontSize: 17),
+            ),
+            Text(
+              "Current BGL :  $currentBGL ",
+              style: const TextStyle(color: Colors.red, fontSize: 23),
+            ),
+            Text(
+              "Predicted BGL :  $predValue ",
               style: const TextStyle(color: Colors.red, fontSize: 23),
             ),
           ],
