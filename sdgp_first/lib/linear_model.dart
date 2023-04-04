@@ -100,44 +100,64 @@ class _PredModelState extends State<LinearModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF6fb7e0),
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Result",
+          style: TextStyle(
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 320,
-              height: 320,
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.black),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Table(
-                  children: [
-                    _buildTableRow("Carbs", totalCarbAmount.toDouble()),
-                    _buildTableRow("Calories", totalCalorieAmount.toDouble()),
-                    _buildTableRow("Fat", totalFatAmount.toDouble()),
-                    _buildTableRow("Fiber", totalFiberAmount.toDouble()),
-                    _buildTableRow("Protein", totalProteinAmount.toDouble()),
-                    _buildTableRow(
-                        "Current BGL", currentBGL.toDouble(), color: Colors.red,
-                        fontSize: 23),
-                    _buildTableRow("Predicted BGL", double.parse(predValue),
-                        color: Colors.red, fontSize: 23),
-                  ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.blue,
+              Colors.blueGrey,
+            ],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 320,
+                height: 320,
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Table(
+                    children: [
+                      _buildTableRow("Carbs", totalCarbAmount.toDouble()),
+                      _buildTableRow("Calories", totalCalorieAmount.toDouble()),
+                      _buildTableRow("Fat", totalFatAmount.toDouble()),
+                      _buildTableRow("Fiber", totalFiberAmount.toDouble()),
+                      _buildTableRow("Protein", totalProteinAmount.toDouble()),
+                      _buildTableRow(
+                          "Current BGL", currentBGL.toDouble(), color: Colors.red, fontSize: 23),
+                      _buildTableRow("Predicted BGL", double.parse(predValue),
+                          color: Colors.red, fontSize: 23),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
+
 
   TableRow _buildTableRow(String label, double value,
       {Color color = Colors.green, double fontSize = 20}) {
