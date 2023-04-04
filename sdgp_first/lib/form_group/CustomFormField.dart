@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 TextEditingController meal1 = TextEditingController();
@@ -18,6 +17,28 @@ TextEditingController weight7 = TextEditingController();
 TextEditingController meal8 = TextEditingController();
 TextEditingController weight8 = TextEditingController();
 
+List<TextEditingController> mealControllers = [
+  meal1,
+  meal2,
+  meal3,
+  meal4,
+  meal5,
+  meal6,
+  meal7,
+  meal8,
+];
+
+List<TextEditingController> weightControllers = [
+  weight1,
+  weight2,
+  weight3,
+  weight4,
+  weight5,
+  weight6,
+  weight7,
+  weight8,
+];
+
 TextEditingController unit_1 = TextEditingController();
 
 final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -32,7 +53,18 @@ String selectedMealUnits_6 = 'g';
 String selectedMealUnits_7 = 'g';
 String selectedMealUnits_8 = 'g';
 
-void disposeControllers(){
+List<String> selectedUnitStrings = [
+  selectedMealUnits_1,
+  selectedMealUnits_2,
+  selectedMealUnits_3,
+  selectedMealUnits_4,
+  selectedMealUnits_5,
+  selectedMealUnits_6,
+  selectedMealUnits_7,
+  selectedMealUnits_8,
+];
+
+void disposeControllers() {
   meal1.clear();
   meal2.clear();
   meal3.clear();
@@ -50,10 +82,9 @@ void disposeControllers(){
   weight6.clear();
   weight7.clear();
   weight8.clear();
-
 }
 
-Container customFormField1(){
+Container customFormField1() {
   return Container(
     height: 90,
     child: Row(
@@ -63,8 +94,10 @@ Container customFormField1(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Meal',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              const Text(
+                'Meal',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               Container(
                 width: 280,
                 height: 60,
@@ -75,14 +108,16 @@ Container customFormField1(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -93,26 +128,30 @@ Container customFormField1(){
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Weight',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              const Text(
+                'Weight',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               Container(
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight1,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -123,7 +162,8 @@ Container customFormField1(){
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Unit ',
+                const Text(
+                  'Unit ',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
@@ -153,7 +193,8 @@ Container customFormField1(){
     ),
   );
 }
-Container customFormField2(){
+
+Container customFormField2() {
   return Container(
     height: 90,
     child: Row(
@@ -164,7 +205,7 @@ Container customFormField2(){
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //const Text('Meal',
-                //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
                 width: 280,
                 height: 60,
@@ -175,14 +216,16 @@ Container customFormField2(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -194,25 +237,27 @@ Container customFormField2(){
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //const Text('Weight',
-                //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+              //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               Container(
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight2,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -224,7 +269,7 @@ Container customFormField2(){
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //const Text('Unit ',
-                  //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                //style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 //),
                 SizedBox(
                   width: 80,
@@ -253,7 +298,8 @@ Container customFormField2(){
     ),
   );
 }
-Container customFormField3(){
+
+Container customFormField3() {
   return Container(
     height: 90,
     child: Row(
@@ -275,14 +321,16 @@ Container customFormField3(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -299,20 +347,22 @@ Container customFormField3(){
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight3,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -347,14 +397,14 @@ Container customFormField3(){
                     ),
                   ),
                 ),
-
               ],
             ))
       ],
     ),
   );
 }
-Container customFormField4(){
+
+Container customFormField4() {
   return Container(
     height: 90,
     child: Row(
@@ -376,14 +426,16 @@ Container customFormField4(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -400,20 +452,22 @@ Container customFormField4(){
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight4,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -454,7 +508,8 @@ Container customFormField4(){
     ),
   );
 }
-Container customFormField5(){
+
+Container customFormField5() {
   return Container(
     height: 90,
     color: Colors.grey.shade300,
@@ -477,14 +532,16 @@ Container customFormField5(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -501,20 +558,22 @@ Container customFormField5(){
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight5,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -555,7 +614,8 @@ Container customFormField5(){
     ),
   );
 }
-Container customFormField6(){
+
+Container customFormField6() {
   return Container(
     height: 90,
     child: Row(
@@ -577,14 +637,16 @@ Container customFormField6(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -601,20 +663,22 @@ Container customFormField6(){
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight6,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -655,7 +719,8 @@ Container customFormField6(){
     ),
   );
 }
-Container customFormField7(){
+
+Container customFormField7() {
   return Container(
     height: 90,
     color: Colors.grey.shade300,
@@ -678,14 +743,16 @@ Container customFormField7(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -702,20 +769,22 @@ Container customFormField7(){
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight7,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -750,14 +819,14 @@ Container customFormField7(){
                     ),
                   ),
                 ),
-
               ],
             ))
       ],
     ),
   );
 }
-Container customFormField8(){
+
+Container customFormField8() {
   return Container(
     height: 90,
     child: Row(
@@ -779,14 +848,16 @@ Container customFormField8(){
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -803,20 +874,22 @@ Container customFormField8(){
                 width: 80,
                 height: 60,
                 margin: const EdgeInsets.all(2),
-                padding: const EdgeInsets.only(left:2 ),
+                padding: const EdgeInsets.only(left: 2),
                 child: TextField(
                   controller: weight8,
                   decoration: InputDecoration(
                     // Add text to the label
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Add a border radius
-                      borderSide: const BorderSide(color: Colors.grey, width: 1.0), // Add a border color and width
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Add a border radius
+                      borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1.0), // Add a border color and width
                     ),
                   ),
                   onChanged: (text) {
                     // Handle text input changes
                   },
-
                 ),
               ),
             ],
@@ -857,10 +930,3 @@ Container customFormField8(){
     ),
   );
 }
-
-
-
-
-
-
-
