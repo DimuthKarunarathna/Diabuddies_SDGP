@@ -20,6 +20,7 @@ class _PredModelState extends State<LinearModel> {
   final firestore = FirebaseFirestore.instance;
   final _auth2 = FirebaseAuth.instance;
   late final List<int> nutrientData;
+
   _PredModelState({required this.nutrientData});
 
   var predValue = "";
@@ -100,22 +101,37 @@ class _PredModelState extends State<LinearModel> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.lightBlue,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Table(
-              children: [
-                _buildTableRow("Carbs", totalCarbAmount.toDouble()),
-                _buildTableRow("Calories", totalCalorieAmount.toDouble()),
-                _buildTableRow("Fat", totalFatAmount.toDouble()),
-                _buildTableRow("Fiber", totalFiberAmount.toDouble()),
-                _buildTableRow("Protein", totalProteinAmount.toDouble()),
-                _buildTableRow("Current BGL", currentBGL.toDouble(), color: Colors.red, fontSize: 23),
-                _buildTableRow("Predicted BGL", double.parse(predValue), color: Colors.red, fontSize: 23),
-              ],
+            Container(
+              width: 320,
+              height: 320,
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.black),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Table(
+                  children: [
+                    _buildTableRow("Carbs", totalCarbAmount.toDouble()),
+                    _buildTableRow("Calories", totalCalorieAmount.toDouble()),
+                    _buildTableRow("Fat", totalFatAmount.toDouble()),
+                    _buildTableRow("Fiber", totalFiberAmount.toDouble()),
+                    _buildTableRow("Protein", totalProteinAmount.toDouble()),
+                    _buildTableRow(
+                        "Current BGL", currentBGL.toDouble(), color: Colors.red,
+                        fontSize: 23),
+                    _buildTableRow("Predicted BGL", double.parse(predValue),
+                        color: Colors.red, fontSize: 23),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -123,26 +139,43 @@ class _PredModelState extends State<LinearModel> {
     );
   }
 
-  TableRow _buildTableRow(String label, double value, {Color color = Colors.green, double fontSize = 17}) {
+  TableRow _buildTableRow(String label, double value,
+      {Color color = Colors.green, double fontSize = 20}) {
     return TableRow(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            label,
-            style: TextStyle(fontSize: fontSize, color: color),
+        Container(
+          width: 100,
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              label,
+              style: TextStyle(fontSize: fontSize, color: color),
+            ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            value.toStringAsFixed(2),
-            style: TextStyle(fontSize: fontSize, color: color),
+        Container(
+          width: 100,
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: Colors.black),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              value.toStringAsFixed(2),
+              style: TextStyle(fontSize: fontSize, color: color),
+            ),
           ),
         ),
       ],
     );
   }
-
 }
-
