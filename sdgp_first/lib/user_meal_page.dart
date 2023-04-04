@@ -169,16 +169,7 @@ class _UserMealState extends State<UserMeal> {
                     flex: 1,
                     child: ElevatedButton(
                         onPressed: () {
-                          // if (count == 1) {
-                          //   print(
-                          //       "${meal1.text} ${weight1.text} ${selectedMealUnits_1.characters}");
-                          // }
                           callApi();
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (builder) =>
-                                      LinearModel(nutrientData: nutrientData)));
                         },
                         child: const Text("Submit")),
                   )
@@ -201,10 +192,15 @@ class _UserMealState extends State<UserMeal> {
       String mealName = mealControllers[i].text;
       String mealQuantity = weightControllers[i].text;
       String mealUnit = selectedUnitStrings[i];
-      getNutrition(mealName, mealQuantity, mealUnit);
+      await getNutrition(mealName, mealQuantity, mealUnit);
     }
 
     print("nutrient data list in screen 1 : $nutrientData");
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (builder) => LinearModel(nutrientData: nutrientData)));
   }
 
   Future<void> getNutrition(
