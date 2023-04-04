@@ -17,8 +17,8 @@ class LinearModel extends StatefulWidget {
 }
 
 class _PredModelState extends State<LinearModel> {
-  final firestore =FirebaseFirestore.instance;
-  final _auth2=FirebaseAuth.instance;
+  final firestore = FirebaseFirestore.instance;
+  final _auth2 = FirebaseAuth.instance;
   late final List<int> nutrientData;
   _PredModelState({required this.nutrientData});
 
@@ -38,11 +38,12 @@ class _PredModelState extends State<LinearModel> {
   }
 
   void getCurrentUser() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {//we are using authStateChanges bcs FireBaseauth.instance.currentUser doesnt availabe for immediately when sign in with google
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      //we are using authStateChanges bcs FireBaseauth.instance.currentUser doesnt availabe for immediately when sign in with google
       //but FireBaseauth.instance.currentUser fine when sign in using email and password instead of google sign in
       if (user != null) {
         // In this code User is signed in, you can access the user object via `currentUser` or `user` parameter.
-        final user=_auth2.currentUser;//it will null if anyone not signed in
+        final user = _auth2.currentUser; //it will null if anyone not signed in
         print(user!.email);
         print('User is signed in!');
       } else {
@@ -78,16 +79,16 @@ class _PredModelState extends State<LinearModel> {
     String currentTime = DateFormat('HH:mm:ss').format(DateTime.now());
 
     firestore.collection("FoodSummary").add({
-      'afbgl':double.parse(predValue),
-      'bebgl':currentBGL,
-      'carbs':totalCarbAmount,
-      'protein':totalProteinAmount,
-      'fats':totalFatAmount,
-      'calories':totalCalorieAmount,
-      'fiber':totalFiberAmount,
-      'date':currentDate,
-      'time':currentTime,
-      'user':_auth2.currentUser?.email
+      'afbgl': double.parse(predValue),
+      'bebgl': currentBGL,
+      'carbs': totalCarbAmount,
+      'protein': totalProteinAmount,
+      'fats': totalFatAmount,
+      'calories': totalCalorieAmount,
+      'fiber': totalFiberAmount,
+      'date': currentDate,
+      'time': currentTime,
+      'user': _auth2.currentUser?.email
     });
 
     setState(() {
