@@ -44,7 +44,7 @@ dependencies:
   email_validator: ^2.1.17
   image_picker: ^0.8.7
   firebase_ml_model_downloader: ^0.2.1
-#  tflite: ^1.1.2
+  tflite_flutter: ^0.9.1
 
 dev_dependencies:
   flutter_test:

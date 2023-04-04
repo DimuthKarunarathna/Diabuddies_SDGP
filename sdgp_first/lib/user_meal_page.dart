@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sdgp_first/add_meal_page.dart';
+import 'package:sdgp_first/linear_model.dart';
 import 'package:sdgp_first/form_group/CustomFormField.dart';
 
 //ML model imports
@@ -21,18 +22,6 @@ class _UserMealState extends State<UserMeal> {
   List<Widget> forms = [customFormField1()];
   int count = 1;
 
-
-
-  modelInit() async {
-    // await Tflite.loadModel(
-    //   model: "assets/model3.tflite",
-    // );
-    // List<double> input = [1.2, 2.3, 3.4];
-    // // var output = await Tflite.runModelOnFloats(inputs: [input]);
-    // // print(output);
-
-  }
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -42,7 +31,6 @@ class _UserMealState extends State<UserMeal> {
   }
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -173,60 +161,205 @@ class _UserMealState extends State<UserMeal> {
                     child: ElevatedButton(
                         onPressed: () {
                           if (count == 1) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
                           }
                           if (count == 2) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
                           }
                           if (count == 3) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
+                            print(meal3.text +
+                                " " +
+                                weight3.text +
+                                " " +
+                                selectedMealUnits_3.characters.toString());
                           }
                           if (count == 4) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
+                            print(meal3.text +
+                                " " +
+                                weight3.text +
+                                " " +
+                                selectedMealUnits_3.characters.toString());
+                            print(meal4.text +
+                                " " +
+                                weight4.text +
+                                " " +
+                                selectedMealUnits_4.characters.toString());
                           }
                           if (count == 5) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
+                            print(meal3.text +
+                                " " +
+                                weight3.text +
+                                " " +
+                                selectedMealUnits_3.characters.toString());
+                            print(meal4.text +
+                                " " +
+                                weight4.text +
+                                " " +
+                                selectedMealUnits_4.characters.toString());
+                            print(meal5.text +
+                                " " +
+                                weight5.text +
+                                " " +
+                                selectedMealUnits_5.characters.toString());
                           }
                           if (count == 6) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                            print(meal6.text + " " + weight6.text + " "+selectedMealUnits_6.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
+                            print(meal3.text +
+                                " " +
+                                weight3.text +
+                                " " +
+                                selectedMealUnits_3.characters.toString());
+                            print(meal4.text +
+                                " " +
+                                weight4.text +
+                                " " +
+                                selectedMealUnits_4.characters.toString());
+                            print(meal5.text +
+                                " " +
+                                weight5.text +
+                                " " +
+                                selectedMealUnits_5.characters.toString());
+                            print(meal6.text +
+                                " " +
+                                weight6.text +
+                                " " +
+                                selectedMealUnits_6.characters.toString());
                           }
                           if (count == 7) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                            print(meal6.text + " " + weight6.text + " "+selectedMealUnits_6.characters.toString());
-                            print(meal7.text + " " + weight7.text + " "+selectedMealUnits_7.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
+                            print(meal3.text +
+                                " " +
+                                weight3.text +
+                                " " +
+                                selectedMealUnits_3.characters.toString());
+                            print(meal4.text +
+                                " " +
+                                weight4.text +
+                                " " +
+                                selectedMealUnits_4.characters.toString());
+                            print(meal5.text +
+                                " " +
+                                weight5.text +
+                                " " +
+                                selectedMealUnits_5.characters.toString());
+                            print(meal6.text +
+                                " " +
+                                weight6.text +
+                                " " +
+                                selectedMealUnits_6.characters.toString());
+                            print(meal7.text +
+                                " " +
+                                weight7.text +
+                                " " +
+                                selectedMealUnits_7.characters.toString());
                           }
                           if (count == 8) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                            print(meal6.text + " " + weight6.text + " "+selectedMealUnits_6.characters.toString());
-                            print(meal7.text + " " + weight7.text + " "+selectedMealUnits_7.characters.toString());
-                            print(meal8.text + " " + weight8.text + " "+selectedMealUnits_8.characters.toString());
+                            print(meal1.text +
+                                " " +
+                                weight1.text +
+                                " " +
+                                selectedMealUnits_1.characters.toString());
+                            print(meal2.text +
+                                " " +
+                                weight2.text +
+                                " " +
+                                selectedMealUnits_2.characters.toString());
+                            print(meal3.text +
+                                " " +
+                                weight3.text +
+                                " " +
+                                selectedMealUnits_3.characters.toString());
+                            print(meal4.text +
+                                " " +
+                                weight4.text +
+                                " " +
+                                selectedMealUnits_4.characters.toString());
+                            print(meal5.text +
+                                " " +
+                                weight5.text +
+                                " " +
+                                selectedMealUnits_5.characters.toString());
+                            print(meal6.text +
+                                " " +
+                                weight6.text +
+                                " " +
+                                selectedMealUnits_6.characters.toString());
+                            print(meal7.text +
+                                " " +
+                                weight7.text +
+                                " " +
+                                selectedMealUnits_7.characters.toString());
+                            print(meal8.text +
+                                " " +
+                                weight8.text +
+                                " " +
+                                selectedMealUnits_8.characters.toString());
                           }
-                          print(gluLvl.text + " is Blood Glucose Level" );
+                          print(gluLvl.text + " is Blood Glucose Level");
 
-                          Navigator.of(context).pop(MaterialPageRoute(builder: (context){
+                          Navigator.of(context)
+                              .pop(MaterialPageRoute(builder: (context) {
                             return FirstMealPage();
                           }));
                         },
@@ -236,7 +369,6 @@ class _UserMealState extends State<UserMeal> {
               ),
             ),
           ],
-        )
-        );
+        ));
   }
 }
