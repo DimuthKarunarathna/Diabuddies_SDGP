@@ -37,7 +37,7 @@ class _PredModelState extends State<LinearModel> {
     print("nutrient data list in screen 2 : $nutrientData");
 
     List<num> numList =
-        nutrientData.map((int value) => value.toDouble()).toList();
+    nutrientData.map((int value) => value.toDouble()).toList();
     // var flatList = input.expand((e) => e).toList(); // Flatten nested list
     var floatList = Float32List.fromList(
         numList.map((e) => e.toDouble()).toList()); // Convert to Float32List
@@ -68,38 +68,43 @@ class _PredModelState extends State<LinearModel> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 12),
-            Text(
-              "Carbs :  $totalCarbAmount ",
-              style: const TextStyle(color: Colors.green, fontSize: 17),
-            ),
-            Text(
-              "Calories :  $totalCalorieAmount ",
-              style: const TextStyle(color: Colors.green, fontSize: 17),
-            ),
-            Text(
-              "Fat :  $totalFatAmount ",
-              style: const TextStyle(color: Colors.green, fontSize: 17),
-            ),
-            Text(
-              "Fiber :  $totalFiberAmount ",
-              style: const TextStyle(color: Colors.green, fontSize: 17),
-            ),
-            Text(
-              "Protein :  $totalProteinAmount ",
-              style: const TextStyle(color: Colors.green, fontSize: 17),
-            ),
-            Text(
-              "Current BGL :  $currentBGL ",
-              style: const TextStyle(color: Colors.red, fontSize: 23),
-            ),
-            Text(
-              "Predicted BGL :  $predValue ",
-              style: const TextStyle(color: Colors.red, fontSize: 23),
+            Table(
+              children: [
+                _buildTableRow("Carbs", totalCarbAmount.toDouble()),
+                _buildTableRow("Calories", totalCalorieAmount.toDouble()),
+                _buildTableRow("Fat", totalFatAmount.toDouble()),
+                _buildTableRow("Fiber", totalFiberAmount.toDouble()),
+                _buildTableRow("Protein", totalProteinAmount.toDouble()),
+                _buildTableRow("Current BGL", currentBGL.toDouble(), color: Colors.red, fontSize: 23),
+                _buildTableRow("Predicted BGL", double.parse(predValue), color: Colors.red, fontSize: 23),
+              ],
             ),
           ],
         ),
       ),
     );
   }
+
+  TableRow _buildTableRow(String label, double value, {Color color = Colors.green, double fontSize = 17}) {
+    return TableRow(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            label,
+            style: TextStyle(fontSize: fontSize, color: color),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            value.toStringAsFixed(2),
+            style: TextStyle(fontSize: fontSize, color: color),
+          ),
+        ),
+      ],
+    );
+  }
+
 }
+
