@@ -51,7 +51,7 @@ class _PredModelState extends State<LinearModel> {
     totalFatAmount = nutrientData[2];
     totalFiberAmount = nutrientData[3];
     totalProteinAmount = nutrientData[4];
-    currentBGL = nutrientData[5];
+    currentBGL = nutrientData[6];
 
     setState(() {
       predValue = output[0][0].toString();
