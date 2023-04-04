@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sdgp_first/food_summary/food_card.dart';
+import 'package:sdgp_first/food_summary/food_entity.dart';
+import 'package:sdgp_first/food_summary/food_summary.dart';
 import 'package:sdgp_first/image_page.dart';
 import 'package:sdgp_first/login_Form/patientDetails.dart';
 import 'package:sdgp_first/login_page.dart';
@@ -25,6 +28,9 @@ class _FirstMealPageState extends State<FirstMealPage> {
     switch(index){
       case 1:
         Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
+        break;
+      case 3:
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>FoodSummary()));
         break;
     }
   }
