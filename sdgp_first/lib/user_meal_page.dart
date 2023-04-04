@@ -1,37 +1,34 @@
+import 'dart:convert';
+import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sdgp_first/add_meal_page.dart';
+import 'package:sdgp_first/linear_model.dart';
 import 'package:sdgp_first/form_group/CustomFormField.dart';
-
-//ML model imports
-// import 'package:tflite/tflite.dart';
+import 'package:http/http.dart' as http;
 
 class UserMeal extends StatefulWidget {
   const UserMeal({Key? key}) : super(key: key);
-
   @override
   State<UserMeal> createState() => _UserMealState();
 }
 
 class _UserMealState extends State<UserMeal> {
+  int totalCarbAmount = 0;
+  int totalCalorieAmount = 0;
+  int totalFatAmount = 0;
+  int totalFiberAmount = 0;
+  int totalProteinAmount = 0;
+  int currentBGL = 0;
+
+  List<int> nutrientData = List.filled(7, 0); // 5 nutrition vals + current BGL
+
   TextEditingController gluLvl = TextEditingController();
   late String glucose;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   List<Widget> forms = [customFormField1()];
   int count = 1;
-
-
-
-  modelInit() async {
-    // await Tflite.loadModel(
-    //   model: "assets/model3.tflite",
-    // );
-    // List<double> input = [1.2, 2.3, 3.4];
-    // // var output = await Tflite.runModelOnFloats(inputs: [input]);
-    // // print(output);
-
-  }
 
   @override
   void dispose() {
@@ -42,7 +39,6 @@ class _UserMealState extends State<UserMeal> {
   }
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -152,6 +148,7 @@ class _UserMealState extends State<UserMeal> {
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                         controller: gluLvl,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           // Add text to the label
                           border: OutlineInputBorder(
@@ -172,63 +169,7 @@ class _UserMealState extends State<UserMeal> {
                     flex: 1,
                     child: ElevatedButton(
                         onPressed: () {
-                          if (count == 1) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                          }
-                          if (count == 2) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                          }
-                          if (count == 3) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                          }
-                          if (count == 4) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                          }
-                          if (count == 5) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                          }
-                          if (count == 6) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                            print(meal6.text + " " + weight6.text + " "+selectedMealUnits_6.characters.toString());
-                          }
-                          if (count == 7) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                            print(meal6.text + " " + weight6.text + " "+selectedMealUnits_6.characters.toString());
-                            print(meal7.text + " " + weight7.text + " "+selectedMealUnits_7.characters.toString());
-                          }
-                          if (count == 8) {
-                            print(meal1.text + " " + weight1.text + " "+selectedMealUnits_1.characters.toString());
-                            print(meal2.text + " " + weight2.text + " "+selectedMealUnits_2.characters.toString());
-                            print(meal3.text + " " + weight3.text + " "+selectedMealUnits_3.characters.toString());
-                            print(meal4.text + " " + weight4.text + " "+selectedMealUnits_4.characters.toString());
-                            print(meal5.text + " " + weight5.text + " "+selectedMealUnits_5.characters.toString());
-                            print(meal6.text + " " + weight6.text + " "+selectedMealUnits_6.characters.toString());
-                            print(meal7.text + " " + weight7.text + " "+selectedMealUnits_7.characters.toString());
-                            print(meal8.text + " " + weight8.text + " "+selectedMealUnits_8.characters.toString());
-                          }
-                          print(gluLvl.text + " is Blood Glucose Level" );
-
-                          Navigator.of(context).pop(MaterialPageRoute(builder: (context){
-                            return FirstMealPage();
-                          }));
+                          callApi();
                         },
                         child: const Text("Submit")),
                   )
@@ -236,7 +177,68 @@ class _UserMealState extends State<UserMeal> {
               ),
             ),
           ],
-        )
-        );
+        ));
+  }
+
+  void callApi() async {
+    totalCarbAmount = 0;
+    totalCalorieAmount = 0;
+    totalFatAmount = 0;
+    totalFiberAmount = 0;
+    totalProteinAmount = 0;
+    currentBGL = int.parse(gluLvl.text);
+
+    for (int i = 0; i < count; i++) {
+      String mealName = mealControllers[i].text;
+      String mealQuantity = weightControllers[i].text;
+      String mealUnit = selectedUnitStrings[i];
+      await getNutrition(mealName, mealQuantity, mealUnit);
+    }
+
+    print("nutrient data list in screen 1 : $nutrientData");
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (builder) => LinearModel(nutrientData: nutrientData)));
+  }
+
+  Future<void> getNutrition(
+      String foodName, String quantity, String unit) async {
+    final url =
+        Uri.parse('https://trackapi.nutritionix.com/v2/natural/nutrients');
+    final headers = {
+      'Content-Type': 'application/json',
+      'x-app-id': '2d640127',
+      'x-app-key': '15e78cdde5473d4ccd1c1299749e0463',
+    };
+    final query = jsonEncode({'query': ' $foodName $quantity $unit'});
+    final response = await http.post(url, headers: headers, body: query);
+    final responseData = jsonDecode(response.body);
+
+    totalCarbAmount =
+        responseData['foods'][0]['nf_total_carbohydrate'].toInt() +
+            totalCarbAmount;
+    totalCalorieAmount =
+        responseData['foods'][0]['nf_calories'].toInt() + totalCalorieAmount;
+    totalFatAmount =
+        responseData['foods'][0]['nf_total_fat'].toInt() + totalFatAmount;
+    totalFiberAmount =
+        responseData['foods'][0]['nf_dietary_fiber'].toInt() + totalFiberAmount;
+    totalProteinAmount =
+        responseData['foods'][0]['nf_protein'].toInt() + totalProteinAmount;
+
+    nutrientData = [
+      totalCarbAmount,
+      totalCalorieAmount,
+      totalFiberAmount,
+      totalFatAmount,
+      totalProteinAmount,
+      45,
+      currentBGL,
+    ];
+
+    print(
+        "total carbs : $totalCarbAmount \n total Cals : $totalCalorieAmount \n total fat : $totalFatAmount");
   }
 }
