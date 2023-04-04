@@ -76,6 +76,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
           ],
         ),
         body: ListView(
+          padding: EdgeInsets.zero,
           children: [
             Container(
               decoration: BoxDecoration(
