@@ -1,4 +1,4 @@
-class FoodEntity{
+class FoodEntity {
   String? time;
   String? date;
   double? carbs;
@@ -9,6 +9,14 @@ class FoodEntity{
   double? bglBefore;
   double? bglAfter;
 
-  FoodEntity({required this.time,required this.date, required this.carbs, required this.protein, required this.fiber, required this.fats,
-    required this.calories, required this.bglBefore, required this.bglAfter});
+  FoodEntity(
+      {required this.time,
+      required this.date,
+      required this.carbs,
+      required this.protein,
+      required this.fiber,
+      required this.fats,
+      required this.calories,
+      required this.bglBefore,
+      required this.bglAfter});
 }

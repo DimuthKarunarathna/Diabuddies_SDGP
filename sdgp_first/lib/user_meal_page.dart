@@ -45,7 +45,7 @@ class _UserMealState extends State<UserMeal> {
         appBar: AppBar(
           title: const Text('Meal Information'),
           leading: IconButton(
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.arrow_back_outlined),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FirstMealPage())); // Handle menu icon press
             },
