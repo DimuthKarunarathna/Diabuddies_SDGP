@@ -139,12 +139,12 @@ class _PredModelState extends State<LinearModel> {
                   child: Table(
                     children: [
                       _buildTableRow(
-                        "Carbohydrate",
-                        "${totalCalorieAmount.toDouble()} g",
+                        "Calories",
+                        "${totalCalorieAmount.toDouble()} kcal",
                       ),
                       _buildTableRow(
-                        "Calories",
-                        "${totalCalorieAmount.toDouble()} g",
+                        "Carbohydrates",
+                        "${totalCarbAmount.toDouble()} g",
                       ),
                       _buildTableRow(
                         "Fat",
