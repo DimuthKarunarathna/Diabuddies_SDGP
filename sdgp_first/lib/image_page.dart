@@ -54,10 +54,10 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.green),
+                      foregroundColor: MaterialStateProperty.all(Colors.blue),
                     ),
                     icon: IconTheme(
-                      data: IconThemeData(size: 60,color: Colors.green),
+                      data: IconThemeData(size: 60,color: Colors.blue),
                       child: Icon(Icons.camera_alt_rounded),
 
                     ), // Use a network image instead of a local asset
@@ -78,10 +78,10 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.green),
+                      foregroundColor: MaterialStateProperty.all(Colors.blue),
                     ),
                     icon: IconTheme(
-                      data: IconThemeData(size: 60,color: Colors.green),
+                      data: IconThemeData(size: 60,color: Colors.blue),
                       child: Icon(Icons.photo),
 
                     ), // Use a network image instead of a local asset
