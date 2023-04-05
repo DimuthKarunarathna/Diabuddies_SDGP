@@ -37,16 +37,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(
-          "Patient Details Form",
-          style: TextStyle(
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
+        title: Text('Patient Details Form'),
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -100,7 +100,7 @@ class _PredModelState extends State<LinearModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Color(0xFF6fb7e0),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
