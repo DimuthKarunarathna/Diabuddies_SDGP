@@ -41,8 +41,18 @@ class _UserMealState extends State<UserMeal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.lightBlue,
         appBar: AppBar(
-          title: const Text('Meal Information'),
+          backgroundColor: Colors.transparent,
+          title: Text(
+            "Meal Infromation",
+            style: TextStyle(
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
@@ -58,7 +68,16 @@ class _UserMealState extends State<UserMeal> {
             ),
           ],
         ),
-        body: Column(
+        body: Container(
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+               colors: [
+                     Colors.blue,
+                      Colors.blueGrey,
+                    ],
+                    ),
+                  ),
+         child:Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
@@ -177,7 +196,7 @@ class _UserMealState extends State<UserMeal> {
               ),
             ),
           ],
-        ));
+        )));
   }
 
   void callApi() async {
