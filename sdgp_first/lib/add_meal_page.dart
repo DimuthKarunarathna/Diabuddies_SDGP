@@ -64,13 +64,14 @@ class _FirstMealPageState extends State<FirstMealPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Diabuddies'),
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
+          title: const Text('Welcome to Diabuddies'),
+
+          //leading: IconButton(
+            //icon: const Icon(Icons.menu),
+            //onPressed: () {
               // Handle menu icon press
-            },
-          ),
+            //},
+          //),
           actions: [
             IconButton(
               icon: const Icon(Icons.exit_to_app),
