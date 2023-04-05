@@ -235,7 +235,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const ImageChoosePage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodSummary()));
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.white),
