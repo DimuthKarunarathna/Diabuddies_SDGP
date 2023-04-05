@@ -20,8 +20,6 @@ class _FirstMealPageState extends State<FirstMealPage> {
   final _auth2=FirebaseAuth.instance;
   int _selectedIndex=0;
 
-  get image => null;
-
   void _onBarItemTapped(int index){
     setState(() {
       _selectedIndex=index;
@@ -32,7 +30,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
         Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
         break;
       case 3:
-        Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodSummary()));
+        Navigator.push(context, MaterialPageRoute(builder: (builder)=>FoodSummary()));
         break;
     }
   }
@@ -66,7 +64,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Diabuddies'),
+          title: const Text('Patient Information'),
           leading: IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
@@ -87,38 +85,39 @@ class _FirstMealPageState extends State<FirstMealPage> {
           padding: EdgeInsets.zero,
           children: [
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
                           "img/dia_pic.jpg"
-
-
                       ),
                       fit: BoxFit.cover// otherwise yhere is a space in corners
-
                   )
               ),
-              width: 300,
-              height: 700,
               child: Column(
                 children: [
-                  Image.asset(
-                    'img/img1.jpg',
-                    width: 300,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'User Meal Details',
+                    style: TextStyle(fontSize: 25),
+                  ),
+                  Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXTxXbJtRTJzcisw_L73_xlovINmbzDtcGEQ&usqp=CAU', // Replace with your image URL
+                    width: 200,
                     height: 200,
-                    fit: BoxFit.contain,
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                      border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
                       borderRadius: BorderRadius.circular(10)
                     ),
                     child: SizedBox(
-                      height: 75,
+                      height: 90,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const ImageChoosePage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>ImageChoosePage()));
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -136,19 +135,21 @@ class _FirstMealPageState extends State<FirstMealPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                        border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
                         borderRadius: BorderRadius.circular(10)
                     ),
                     child: SizedBox(
                       //g
-                      height: 75,
+                      height: 90,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const UserMeal()));
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>UserMeal()));
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -160,7 +161,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
 
                         ), // Use a network image instead of a local asset
                         label: const Text(
-                          'Add Meal Details',
+                          'User Meal',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -169,12 +170,12 @@ class _FirstMealPageState extends State<FirstMealPage> {
                   const SizedBox(height: 10,),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                        border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
                         borderRadius: BorderRadius.circular(10)
                     ),
                     child: SizedBox(
                       //g
-                      height: 75,
+                      height: 90,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
@@ -196,75 +197,15 @@ class _FirstMealPageState extends State<FirstMealPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      height: 75,
-                      width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.person),
-
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Patient Details',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      height: 75,
-                      width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodSummary()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.receipt_rounded),
-
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Report History',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 40,)
                 ],
               ),
             ),
           ],
         ),
 
-      /*bottomNavigationBar: BottomNavigationBar(
-        items: const [
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -289,7 +230,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onBarItemTapped,
-      ),*/
+      ),
     );
   }
 
