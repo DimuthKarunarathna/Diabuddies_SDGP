@@ -85,178 +85,180 @@ class _FirstMealPageState extends State<FirstMealPage> {
         body: ListView(
           padding: EdgeInsets.zero,
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                          "img/dia_pic.jpg"
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                            "img/dia_pic.jpg"
 
 
-                      ),
-                      fit: BoxFit.cover// otherwise yhere is a space in corners
+                        ),
+                        fit: BoxFit.cover// otherwise yhere is a space in corners
 
-                  )
-              ),
-              width: 300,
-              height: 700,
-              child: Column(
-                children: [
-                  Image.asset(
-                    'img/img1.jpg',
-                    width: 300,
-                    height: 200,
-                    fit: BoxFit.contain,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      height: 75,
+                    )
+                ),
+                width: 300,
+                height: 700,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'img/img1.jpg',
                       width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const ImageChoosePage()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.camera_alt_outlined),
-
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Add Meal Image',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
+                      height: 200,
+                      fit: BoxFit.contain,
                     ),
-                  ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    decoration: BoxDecoration(
+                    Container(
+                      decoration: BoxDecoration(
                         border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
                         borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      //g
-                      height: 75,
-                      width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const UserMeal()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.fastfood_rounded),
+                      ),
+                      child: SizedBox(
+                        height: 75,
+                        width: 300,
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (builder)=>const ImageChoosePage()));
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.white),
+                            foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                          ),
+                          icon: const IconTheme(
+                            data: IconThemeData(size: 60,color: Colors.lightBlue),
+                            child: Icon(Icons.camera_alt_outlined),
 
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Add Meal Details',
-                          style: TextStyle(fontSize: 20),
+                          ), // Use a network image instead of a local asset
+                          label: const Text(
+                            'Add Meal Image',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      //g
-                      height: 75,
-                      width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodRecPage()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.fastfood_outlined),
+                    const SizedBox(height: 10,),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: SizedBox(
+                        //g
+                        height: 75,
+                        width: 300,
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (builder)=>const UserMeal()));
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.white),
+                            foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                          ),
+                          icon: const IconTheme(
+                            data: IconThemeData(size: 60,color: Colors.lightBlue),
+                            child: Icon(Icons.fastfood_rounded),
 
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Recommended Foods',
-                          style: TextStyle(fontSize: 20),
+                          ), // Use a network image instead of a local asset
+                          label: const Text(
+                            'Add Meal Details',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      height: 75,
-                      width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.person),
+                    const SizedBox(height: 10,),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: SizedBox(
+                        //g
+                        height: 75,
+                        width: 300,
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodRecPage()));
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.white),
+                            foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                          ),
+                          icon: const IconTheme(
+                            data: IconThemeData(size: 60,color: Colors.lightBlue),
+                            child: Icon(Icons.fastfood_outlined),
 
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Patient Details',
-                          style: TextStyle(fontSize: 20),
+                          ), // Use a network image instead of a local asset
+                          label: const Text(
+                            'Recommended Foods',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10,),
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: SizedBox(
-                      height: 75,
-                      width: 300,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodSummary()));
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.white),
-                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
-                        ),
-                        icon: const IconTheme(
-                          data: IconThemeData(size: 60,color: Colors.lightBlue),
-                          child: Icon(Icons.receipt_rounded),
+                    const SizedBox(height: 10,),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: SizedBox(
+                        height: 75,
+                        width: 300,
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.white),
+                            foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                          ),
+                          icon: const IconTheme(
+                            data: IconThemeData(size: 60,color: Colors.lightBlue),
+                            child: Icon(Icons.person),
 
-                        ), // Use a network image instead of a local asset
-                        label: const Text(
-                          'Report History',
-                          style: TextStyle(fontSize: 20),
+                          ), // Use a network image instead of a local asset
+                          label: const Text(
+                            'Patient Details',
+                            style: TextStyle(fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
+                    const SizedBox(height: 10,),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: SizedBox(
+                        height: 75,
+                        width: 300,
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FoodSummary()));
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.white),
+                            foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                          ),
+                          icon: const IconTheme(
+                            data: IconThemeData(size: 60,color: Colors.lightBlue),
+                            child: Icon(Icons.receipt_rounded),
+
+                          ), // Use a network image instead of a local asset
+                          label: const Text(
+                            'Report History',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

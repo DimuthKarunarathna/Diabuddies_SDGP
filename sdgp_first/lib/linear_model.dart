@@ -116,10 +116,12 @@ class _PredModelState extends State<LinearModel> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Colors.blue,
-              Colors.blueGrey,
-            ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(255, 185, 243, 252),
+                Color.fromARGB(255, 24, 78, 131)
+              ]
           ),
         ),
         child: Center(
