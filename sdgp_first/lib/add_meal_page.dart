@@ -64,7 +64,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Patient Information'),
+          title: const Text('Diabuddies'),
           leading: IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
@@ -85,39 +85,38 @@ class _FirstMealPageState extends State<FirstMealPage> {
           padding: EdgeInsets.zero,
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
                           "img/dia_pic.jpg"
+
+
                       ),
                       fit: BoxFit.cover// otherwise yhere is a space in corners
+
                   )
               ),
+              width: 300,
+              height: 700,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'User Meal Details',
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  Image.network(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXTxXbJtRTJzcisw_L73_xlovINmbzDtcGEQ&usqp=CAU', // Replace with your image URL
-                    width: 200,
+                  Image.asset(
+                    'img/img1.jpg',
+                    width: 300,
                     height: 200,
+                    fit: BoxFit.contain,
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
+                      border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
                       borderRadius: BorderRadius.circular(10)
                     ),
                     child: SizedBox(
-                      height: 90,
+                      height: 75,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>ImageChoosePage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const ImageChoosePage()));
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -135,21 +134,19 @@ class _FirstMealPageState extends State<FirstMealPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10,),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
+                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
                         borderRadius: BorderRadius.circular(10)
                     ),
                     child: SizedBox(
                       //g
-                      height: 90,
+                      height: 75,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>UserMeal()));
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const UserMeal()));
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -161,7 +158,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
 
                         ), // Use a network image instead of a local asset
                         label: const Text(
-                          'User Meal',
+                          'Add Meal Details',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -170,12 +167,12 @@ class _FirstMealPageState extends State<FirstMealPage> {
                   const SizedBox(height: 10,),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromARGB(207, 0, 26, 95),width: 4),
+                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
                         borderRadius: BorderRadius.circular(10)
                     ),
                     child: SizedBox(
                       //g
-                      height: 90,
+                      height: 75,
                       width: 300,
                       child: ElevatedButton.icon(
                         onPressed: () {
@@ -197,15 +194,75 @@ class _FirstMealPageState extends State<FirstMealPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40,)
+                  const SizedBox(height: 10,),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: SizedBox(
+                      height: 75,
+                      width: 300,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>PatientDetailsForm()));
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                        ),
+                        icon: const IconTheme(
+                          data: IconThemeData(size: 60,color: Colors.lightBlue),
+                          child: Icon(Icons.person),
+
+                        ), // Use a network image instead of a local asset
+                        label: const Text(
+                          'Patient Details',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10,),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: SizedBox(
+                      height: 75,
+                      width: 300,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (builder)=>const ImageChoosePage()));
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                        ),
+                        icon: const IconTheme(
+                          data: IconThemeData(size: 60,color: Colors.lightBlue),
+                          child: Icon(Icons.receipt_rounded),
+
+                        ), // Use a network image instead of a local asset
+                        label: const Text(
+                          'Report History',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             ),
           ],
         ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
+      /*bottomNavigationBar: BottomNavigationBar(
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -230,7 +287,7 @@ class _FirstMealPageState extends State<FirstMealPage> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onBarItemTapped,
-      ),
+      ),*/
     );
   }
 
