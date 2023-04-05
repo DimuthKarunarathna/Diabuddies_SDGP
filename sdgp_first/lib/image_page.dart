@@ -44,50 +44,62 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: 350,),
-                SizedBox(
-                  //g
-                  height: 150,
-                  width: 300,
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      chooseImage(ImageSource.camera);
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.blue),
-                    ),
-                    icon: IconTheme(
-                      data: IconThemeData(size: 60,color: Colors.blue),
-                      child: Icon(Icons.camera_alt_rounded),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: SizedBox(
+                    //g
+                    height: 100,
+                    width: 300,
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        chooseImage(ImageSource.camera);
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.white),
+                        foregroundColor: MaterialStateProperty.all(Colors.blue),
+                      ),
+                      icon: IconTheme(
+                        data: IconThemeData(size: 60,color: Colors.blue),
+                        child: Icon(Icons.camera_alt_rounded),
 
-                    ), // Use a network image instead of a local asset
-                    label: const Text(
-                      'Capture From Camera',
-                      style: TextStyle(fontSize: 25),
+                      ), // Use a network image instead of a local asset
+                      label: const Text(
+                        'Capture From Camera',
+                        style: TextStyle(fontSize: 25),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 40,),
-                SizedBox(
-                  //g
-                  height: 150,
-                  width: 300,
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      chooseImage(ImageSource.gallery);
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.blue),
-                    ),
-                    icon: IconTheme(
-                      data: IconThemeData(size: 60,color: Colors.blue),
-                      child: Icon(Icons.photo),
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color.fromARGB(207, 0, 26, 95),width: 4),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: SizedBox(
+                    //g
+                    height: 100,
+                    width: 300,
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        chooseImage(ImageSource.gallery);
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.white),
+                        foregroundColor: MaterialStateProperty.all(Colors.blue),
+                      ),
+                      icon: IconTheme(
+                        data: IconThemeData(size: 60,color: Colors.blue),
+                        child: Icon(Icons.photo),
 
-                    ), // Use a network image instead of a local asset
-                    label: const Text(
-                      'Select From Gallery',
-                      style: TextStyle(fontSize: 25),
+                      ), // Use a network image instead of a local asset
+                      label: const Text(
+                        'Select From Gallery',
+                        style: TextStyle(fontSize: 25),
+                      ),
                     ),
                   ),
                 ),
