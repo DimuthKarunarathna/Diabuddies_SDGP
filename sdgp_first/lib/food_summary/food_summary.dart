@@ -39,8 +39,9 @@ class _FoodSummaryState extends State<FoodSummary> {
         double protein = data['protein'].toDouble();
         double fats = data['fats'].toDouble();
         double fiber = data['fiber'].toDouble();
-        int bebgl = data['bebgl'].toDouble();
-        int afbgl = data['afbgl'].toDouble();
+        double bebgl = data['bebgl'].toDouble();
+        double afbgl =
+            double.parse(data['afbgl'].toDouble().toStringAsFixed(2));
         double calories = data['calories'].toDouble();
 
         // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("working2")));
