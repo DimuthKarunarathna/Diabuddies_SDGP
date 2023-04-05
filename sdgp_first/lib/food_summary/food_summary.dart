@@ -118,14 +118,7 @@ class _FoodSummaryState extends State<FoodSummary> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Food Details"),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-                print('icon pressed');
-              },
-              icon: Icon(Icons.logout))
-        ],
+
       ),
       body: Container(
         decoration: BoxDecoration(

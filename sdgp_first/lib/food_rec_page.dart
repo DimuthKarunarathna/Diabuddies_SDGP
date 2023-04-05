@@ -43,10 +43,12 @@ class _FoodRecPageState extends State<FoodRecPage> {
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Colors.blue,
-                  Colors.blueGrey,
-                ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromARGB(255, 185, 243, 252),
+                    Color.fromARGB(255, 24, 78, 131)
+                  ]
               ),
             ),
             child: Stack(
@@ -71,12 +73,15 @@ class _FoodRecPageState extends State<FoodRecPage> {
                 Positioned(
                   top: 10,
                   left: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (builder) => const RecLeafyPage()));
-                    },
-                    child: const Text('Leafy'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (builder) => const RecLeafyPage()));
+                      },
+                      child: const Text('Leafy'),
+                    ),
                   ),
                 ),
 
@@ -99,12 +104,15 @@ class _FoodRecPageState extends State<FoodRecPage> {
                 Positioned(
                   top: 10,
                   right: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (builder) => const RecSpicesPage()));
-                    },
-                    child: const Text('Spices'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (builder) => const RecSpicesPage()));
+                      },
+                      child: const Text('Spices'),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -126,12 +134,15 @@ class _FoodRecPageState extends State<FoodRecPage> {
                 Positioned(
                   top: 200,
                   left: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (builder) => const RecFruitPage()));
-                    },
-                    child: const Text('Fruits'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (builder) => const RecFruitPage()));
+                      },
+                      child: const Text('Fruits'),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -153,12 +164,15 @@ class _FoodRecPageState extends State<FoodRecPage> {
                 Positioned(
                   top: 200,
                   right: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (builder) => const vegetables()));
-                    },
-                    child: const Text('Vegetables'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (builder) => const vegetables()));
+                      },
+                      child: const Text('Vegetables'),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -181,14 +195,17 @@ class _FoodRecPageState extends State<FoodRecPage> {
                 Positioned(
                   top: 400,
                   left: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (builder) => const grains()),
-                      );
-                    },
-                    child: const Text('Grains'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (builder) => const grains()),
+                        );
+                      },
+                      child: const Text('Grains'),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -210,23 +227,29 @@ class _FoodRecPageState extends State<FoodRecPage> {
                 Positioned(
                   top: 400,
                   right: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (builder) => const proteins()),
-                      );
-                    },
-                    child: const Text('Proteins'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (builder) => const proteins()),
+                        );
+                      },
+                      child: const Text('Proteins'),
+                    ),
                   ),
                 ), Positioned(
                   bottom: 20,
                   left: 20,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Back'),
+                  child: SizedBox(
+                    width: 110,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Back'),
+                    ),
                   ),
                 ),
 

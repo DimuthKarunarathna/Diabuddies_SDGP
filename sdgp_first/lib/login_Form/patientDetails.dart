@@ -392,7 +392,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
               end: Alignment.bottomCenter,
               colors: [
                 Color.fromARGB(255, 185, 243, 252),
-                Color.fromARGB(255, 29, 40, 112)
+                Color.fromARGB(255, 24, 78, 131)
               ]),
         ),
         child: SingleChildScrollView(

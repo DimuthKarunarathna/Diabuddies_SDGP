@@ -65,7 +65,7 @@ class _UserMealState extends State<UserMeal> {
                 end: Alignment.bottomCenter,
                 colors: [
                   Color.fromARGB(255, 185, 243, 252),
-                  Color.fromARGB(255, 5, 14, 73)
+                  Color.fromARGB(255, 24, 78, 131)
                 ]),
           ),
           child: Column(

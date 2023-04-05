@@ -16,6 +16,7 @@ class FoodCard extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 15),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Calories: ${entity.calories}"),
                 Text("Protein: ${entity.protein}"),
