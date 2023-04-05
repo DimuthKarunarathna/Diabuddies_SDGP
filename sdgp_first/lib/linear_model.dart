@@ -59,7 +59,7 @@ class _PredModelState extends State<LinearModel> {
     print("nutrient data list in screen 2 : $nutrientData");
 
     List<num> numList =
-    nutrientData.map((int value) => value.toDouble()).toList();
+        nutrientData.map((int value) => value.toDouble()).toList();
     // var flatList = input.expand((e) => e).toList(); // Flatten nested list
     var floatList = Float32List.fromList(
         numList.map((e) => e.toDouble()).toList()); // Convert to Float32List
@@ -136,14 +136,32 @@ class _PredModelState extends State<LinearModel> {
                   padding: const EdgeInsets.all(1),
                   child: Table(
                     children: [
-                      _buildTableRow("Carbohydrate", "${totalCalorieAmount.toDouble()} g",),
-                      _buildTableRow("Calories",  "${totalCalorieAmount.toDouble()} g",),
-                      _buildTableRow("Fat", "${totalFatAmount.toDouble()} g",),
-                      _buildTableRow("Fiber", "${totalFiberAmount.toDouble()} g",),
-                      _buildTableRow("Protein", "${totalProteinAmount.toDouble()} g",),
-                      _buildTableRow("Current BGL", "${currentBGL.toDouble()} mg/dL", color: Colors.red, fontSize: 23),
-                      _buildTableRow("Predicted BGL", "${predValue} mg/dL", color: Colors.red, fontSize: 23),
-
+                      _buildTableRow(
+                        "Carbohydrate",
+                        "${totalCalorieAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Calories",
+                        "${totalCalorieAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Fat",
+                        "${totalFatAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Fiber",
+                        "${totalFiberAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Protein",
+                        "${totalProteinAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                          "Current BGL", "${currentBGL.toDouble()} mg/dL",
+                          color: Colors.red, fontSize: 23),
+                      _buildTableRow("Predicted BGL",
+                          "${double.parse(predValue).toStringAsFixed(2)} mg/dL",
+                          color: Colors.red, fontSize: 23),
                     ],
                   ),
                 ),
@@ -154,7 +172,6 @@ class _PredModelState extends State<LinearModel> {
       ),
     );
   }
-
 
   TableRow _buildTableRow(String label, String value,
       {Color color = Colors.green, double fontSize = 20}) {
