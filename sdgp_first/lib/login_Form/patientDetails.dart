@@ -385,234 +385,251 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
       appBar: AppBar(
         title: const Text('Patient Details Form'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-          const Center(
-            child: Text(
-              'Gender',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(255, 185, 243, 252),
+                Color.fromARGB(255, 29, 40, 112)
+              ]),
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () => _selectGender('male'),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: _gender == 'male' ?  Colors.blue : Colors.blue.withOpacity(0.3),
-                      child: const Icon(Icons.male),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text('Male'),
-                  ],
+            const Center(
+              child: Text(
+                'Gender',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
                 ),
               ),
-              GestureDetector(
-                onTap: () => _selectGender('female'),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: _gender == 'female'
-                          ? Colors.blue
-                          : Colors.blue.withOpacity(0.3),
-                      child: const Icon(Icons.female),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text('Female'),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 25),
-          const Center(
-            child: Text(
-              'Diabetic Type',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-              ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: RadioListTile<String>(
-                  title: const Text('Type 1 Diabetic'),
-                  value: 'type1',
-                  groupValue: _diabeticType,
-                  onChanged: _selectDiabeticType,
-                ),
-              ),
-              const SizedBox(width: 20),
-              Expanded(
-                child: RadioListTile<String>(
-                  title: const Text('Type 2 Diabetic'),
-                  value: 'type2',
-                  groupValue: _diabeticType,
-                  onChanged: _selectDiabeticType,
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 25),
-          const Center(
-            child: Text(
-              'Height',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 10),
-          HeightInputWidget(onHeightChanged: _onHeightChanged),
-          const SizedBox(height: 25),
-          const Center(
-            child: Text(
-              'Age & Weight',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 20),
-            AgeInputWidget(
-              onAgeChanged: (age, weight) => _onAgeChanged(age, weight),
-            ),
-          const SizedBox(height: 25),
-
-
-          const Center(
-            child: Text(
-              'Smoking History',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0,
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          SmokeInputWidget(onSmokeChanged:_onSmokeChanged),
-          const SizedBox(height: 25),
-
-
-
-
-          Column(
-            children: const [
-              Center(
-                child: Text(
-                  'Activity Level',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0,
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                GestureDetector(
+                  onTap: () => _selectGender('male'),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: _gender == 'male' ?  Colors.blue : Colors.blue.withOpacity(0.3),
+                        child: const Icon(Icons.male),
+                      ),
+                      const SizedBox(height: 5),
+                      const Text('Male'),
+                    ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          RadioListTile<String>(
-            title: const Text('Low level of activity'),
-            value: 'low',
-            groupValue: _activityLevel,
-            onChanged: (value) {
-              setState(() {
-                _activityLevel = value;
-              });
-            },
-          ),
-
-          RadioListTile<String>(
-            title: const Text('Moderate level of activity'),
-            value: 'moderate',
-            groupValue: _activityLevel,
-            onChanged: (value) {
-              setState(() {
-                _activityLevel = value;
-              });
-            },
-          ),
-          RadioListTile<String>(
-            title: const Text('High level of activity'),
-            value: 'high',
-            groupValue: _activityLevel,
-            onChanged: (value) {
-              setState(() {
-                _activityLevel = value;
-              });
-            },
-          ),
-          const SizedBox(height: 25),
-          Column(
-            children: const [
-              Center(
-                child: Text(
-                  'History of Alcohol Drinking',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0,
+                GestureDetector(
+                  onTap: () => _selectGender('female'),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: _gender == 'female'
+                            ? Colors.blue
+                            : Colors.blue.withOpacity(0.3),
+                        child: const Icon(Icons.female),
+                      ),
+                      const SizedBox(height: 5),
+                      const Text('Female'),
+                    ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Flexible(
-                child: RadioListTile<String>(
-                  title: const Text('Drinker'),
-                  value: 'Drinker',
-                  groupValue: _alcoholConsumption,
-                  onChanged: (value) {
-                    setState(() {
-                      _alcoholConsumption = value;
-                    });
-                  },
+              ],
+            ),
+            const SizedBox(height: 25),
+            const Center(
+              child: Text(
+                'Diabetic Type',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
                 ),
               ),
-              Flexible(
-                child: RadioListTile<String>(
-                  title: const Text('Non Drinker'),
-                  value: 'Non Drinker',
-                  groupValue: _alcoholConsumption,
-                  onChanged: (value) {
-                    setState(() {
-                      _alcoholConsumption = value;
-                    });
-                  },
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: RadioListTile<String>(
+                    title: const Text('Type 1 Diabetic'),
+                    value: 'type1',
+                    groupValue: _diabeticType,
+                    onChanged: _selectDiabeticType,
+                  ),
                 ),
-              ),
-            ],
-          ),
-
-
-
-          Center(
-            child:
-              ElevatedButton(
-                onPressed: _onSubmits,
-                child: const Text('Submit'),
-              ),
-
+                const SizedBox(width: 20),
+                Expanded(
+                  child: RadioListTile<String>(
+                    title: const Text('Type 2 Diabetic'),
+                    value: 'type2',
+                    groupValue: _diabeticType,
+                    onChanged: _selectDiabeticType,
+                  ),
+                ),
+              ],
             ),
 
-        ],
+            const SizedBox(height: 25),
+            const Center(
+              child: Text(
+                'Height',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 10),
+            HeightInputWidget(onHeightChanged: _onHeightChanged),
+            const SizedBox(height: 25),
+            const Center(
+              child: Text(
+                'Age & Weight',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+              AgeInputWidget(
+                onAgeChanged: (age, weight) => _onAgeChanged(age, weight),
+              ),
+            const SizedBox(height: 25),
+
+
+            const Center(
+              child: Text(
+                'Smoking History',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            SmokeInputWidget(onSmokeChanged:_onSmokeChanged),
+            const SizedBox(height: 25),
+
+
+
+
+            Column(
+              children: const [
+                Center(
+                  child: Text(
+                    'Activity Level',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            RadioListTile<String>(
+              title: const Text('Low level of activity'),
+              value: 'low',
+              groupValue: _activityLevel,
+              onChanged: (value) {
+                setState(() {
+                  _activityLevel = value;
+                });
+              },
+            ),
+
+            RadioListTile<String>(
+              title: const Text('Moderate level of activity'),
+              value: 'moderate',
+              groupValue: _activityLevel,
+              onChanged: (value) {
+                setState(() {
+                  _activityLevel = value;
+                });
+              },
+            ),
+            RadioListTile<String>(
+              title: const Text('High level of activity'),
+              value: 'high',
+              groupValue: _activityLevel,
+              onChanged: (value) {
+                setState(() {
+                  _activityLevel = value;
+                });
+              },
+            ),
+            const SizedBox(height: 25),
+            Column(
+              children: const [
+                Center(
+                  child: Text(
+                    'History of Alcohol Drinking',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Flexible(
+                  child: RadioListTile<String>(
+                    title: const Text('Drinker'),
+                    value: 'Drinker',
+                    groupValue: _alcoholConsumption,
+                    onChanged: (value) {
+                      setState(() {
+                        _alcoholConsumption = value;
+                      });
+                    },
+                  ),
+                ),
+                Flexible(
+                  child: RadioListTile<String>(
+                    title: const Text('Non Drinker'),
+                    value: 'Non Drinker',
+                    groupValue: _alcoholConsumption,
+                    onChanged: (value) {
+                      setState(() {
+                        _alcoholConsumption = value;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+
+
+            Center(
+              child:
+                ElevatedButton(
+                  onPressed: _onSubmits,
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(
+                        203, 255, 255, 255)),
+                    // Set the font color here
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                  ),
+                  child: const Text('Submit'),
+                ),
+
+              ),
+
+          ],
+          ),
         ),
       ),
       /*bottomNavigationBar: BottomNavigationBar(
