@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +17,7 @@ class ImageChoosePage extends StatefulWidget {
 }
 
 class _ImageChoosePageState extends State<ImageChoosePage> {
+  final _auth2 = FirebaseAuth.instance;
   File? image;
 
   Future chooseImage(ImageSource source) async{
@@ -33,7 +35,21 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
       )
       );
     }
-
+  }
+  void getCurrentUser() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      //we are using authStateChanges bcs FireBaseauth.instance.currentUser doesnt availabe for immediately when sign in with google
+      //but FireBaseauth.instance.currentUser fine when sign in using email and password instead of google sign in
+      if (user != null) {
+        // In this code User is signed in, you can access the user object via `currentUser` or `user` parameter.
+        final user = _auth2.currentUser; //it will null if anyone not signed in
+        print(user!.email);
+        print('User is signed in!');
+      } else {
+        // User is signed out.
+        print('User is signed out!');
+      }
+    });
   }
   @override
   Widget build(BuildContext context) {
