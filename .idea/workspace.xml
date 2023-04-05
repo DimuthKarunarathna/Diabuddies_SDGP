@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ec5dd9-10c1-49bc-9ccb-be0aaa2b20fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Cleaning/~$AllInOneCustom.xlsx" beforeDir="false" />
-    </list>
+    <list default="true" id="e5ec5dd9-10c1-49bc-9ccb-be0aaa2b20fd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[D:\KotlinProjects\avd\Pixel_5_API_33.avd]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -34,7 +31,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/home/Documents/GitHub/OOP-TUT/Diabuddies_SDGP",
+    "last_opened_file_path": "D:/Thushara Piyasekara/Downloads/IIT/Year 2 Semester 2/SDGP Implementaion/Diabuddies_SDGP/sdgp_first",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
