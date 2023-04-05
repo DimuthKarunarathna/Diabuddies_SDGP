@@ -59,7 +59,7 @@ class _PredModelState extends State<LinearModel> {
     print("nutrient data list in screen 2 : $nutrientData");
 
     List<num> numList =
-    nutrientData.map((int value) => value.toDouble()).toList();
+        nutrientData.map((int value) => value.toDouble()).toList();
     // var flatList = input.expand((e) => e).toList(); // Flatten nested list
     var floatList = Float32List.fromList(
         numList.map((e) => e.toDouble()).toList()); // Convert to Float32List
@@ -74,7 +74,7 @@ class _PredModelState extends State<LinearModel> {
     totalFiberAmount = nutrientData[3];
     totalProteinAmount = nutrientData[4];
     currentBGL = nutrientData[6];
-    predValue = output[0][0].toString();
+    predValue = output[0][0].toStringAsFixed(2);
 
     String currentDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
     String currentTime = DateFormat('HH:mm:ss').format(DateTime.now());
@@ -93,7 +93,7 @@ class _PredModelState extends State<LinearModel> {
     });
 
     setState(() {
-      predValue = output[0][0].toString();
+      predValue = output[0][0].toStringAsFixed(2);
     });
   }
 
@@ -127,25 +127,40 @@ class _PredModelState extends State<LinearModel> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 340,
-                height: 340,
+                width: 360,
+                height: 360,
                 decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(11),
-                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(1),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(1),
                   child: Table(
                     children: [
-                      _buildTableRow("Carbohydrate", totalCarbAmount.toDouble()),
-                      _buildTableRow("Calories", totalCalorieAmount.toDouble()),
-                      _buildTableRow("Fat", totalFatAmount.toDouble()),
-                      _buildTableRow("Fiber", totalFiberAmount.toDouble()),
-                      _buildTableRow("Protein", totalProteinAmount.toDouble()),
                       _buildTableRow(
-                          "Current BGL", currentBGL.toDouble(), color: Colors.red, fontSize: 23),
-                      _buildTableRow("Predicted BGL", double.parse(predValue),
+                        "Carbohydrate",
+                        "${totalCalorieAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Calories",
+                        "${totalCalorieAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Fat",
+                        "${totalFatAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Fiber",
+                        "${totalFiberAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                        "Protein",
+                        "${totalProteinAmount.toDouble()} g",
+                      ),
+                      _buildTableRow(
+                          "Current BGL", "${currentBGL.toDouble()} mg/dL",
+                          color: Colors.red, fontSize: 23),
+                      _buildTableRow("Predicted BGL",
+                          "${double.parse(predValue).toStringAsFixed(2)} mg/dL",
                           color: Colors.red, fontSize: 23),
                     ],
                   ),
@@ -158,21 +173,20 @@ class _PredModelState extends State<LinearModel> {
     );
   }
 
-
-  TableRow _buildTableRow(String label, double value,
+  TableRow _buildTableRow(String label, String value,
       {Color color = Colors.green, double fontSize = 20}) {
     return TableRow(
       children: [
         Container(
-          width: 100,
-          height: 40,
+          width: 130,
+          height: 50,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(1),
             border: Border.all(color: Colors.black),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(1),
             child: Text(
               label,
               style: TextStyle(fontSize: fontSize, color: color),
@@ -180,17 +194,17 @@ class _PredModelState extends State<LinearModel> {
           ),
         ),
         Container(
-          width: 100,
-          height: 40,
+          width: 130,
+          height: 50,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(1),
             border: Border.all(color: Colors.black),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              value.toStringAsFixed(2),
+              value,
               style: TextStyle(fontSize: fontSize, color: color),
             ),
           ),
