@@ -19,159 +19,217 @@ class _FoodRecPageState extends State<FoodRecPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Recommended Foods',
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          backgroundColor: const Color(0xFF6fb7e0),
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            title: const Text(
+              "Recommended Food",
+              style: TextStyle(
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            centerTitle: true,
           ),
-        ),
-        body: Center(
-          child: Stack(
-            children: <Widget>[
-              Positioned(
-                top: 30, // Position from top of the screen
-                left: 20, // Position from left of the screen
-                child: Image.asset(
-                  'img/leafy_1.jpg',
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.contain,
-                ),
+          body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.blue,
+                  Colors.blueGrey,
+                ],
               ),
+            ),
+            child: Stack(
+              children: <Widget>[
+                Positioned(
+                  top: 30, // Position from top of the screen
+                  left: 20, // Position from left of the screen
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: Image.asset(
+                      'img/leafy_1.jpg',
+                      width: 160,
+                      height: 160,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
 
-              Positioned(
-                top: 50,
-                left: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>const RecLeafyPage()));
-                  },
-                  child: const Text('Leafy'),
+                Positioned(
+                  top: 10,
+                  left: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (builder) => const RecLeafyPage()));
+                    },
+                    child: const Text('Leafy'),
+                  ),
                 ),
-              ),
 
-              Positioned(
-                top: 30,
-                right: 20,
-                child: Image.asset(
-                  'img/spices_1.jpg',
-                  width: 160,
-                  height: 200,
-                  fit: BoxFit.contain,
+                Positioned(
+                  top: 30,
+                  right: 20,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: Image.asset(
+                      'img/spices_1.jpg',
+                      width: 160,
+                      height: 160,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 50,
-                right: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>const RecSpicesPage()));
-                  },
-                  child: const Text('Spices'),
+                Positioned(
+                  top: 10,
+                  right: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (builder) => const RecSpicesPage()));
+                    },
+                    child: const Text('Spices'),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 220, // Position from top of the screen
-                left: 20, // Position from left of the screen
-                child: Image.asset(
-                  'img/fruits_1.jpg',
-                  width: 180,
-                  height: 200,
-                  fit: BoxFit.contain,
+                Positioned(
+                  top: 220, // Position from top of the screen
+                  left: 20, // Position from left of the screen
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: Image.asset(
+                      'img/fruits_1.jpg',
+                      width: 160,
+                      height: 160,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 240,
-                left: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>const RecFruitPage()));
-                  },
-                  child: const Text('Fruits'),
+                Positioned(
+                  top: 200,
+                  left: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (builder) => const RecFruitPage()));
+                    },
+                    child: const Text('Fruits'),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 220, // Position from top of the screen
-                right: 20, // Position from left of the screen
-                child: Image.asset(
-                  'img/veg_1.jpg',
-                  width: 180,
-                  height: 200,
-                  fit: BoxFit.contain,
+                Positioned(
+                  top: 220, // Position from top of the screen
+                  right: 20, // Position from left of the screen
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: Image.asset(
+                      'img/veg_1.jpg',
+                      width: 160,
+                      height: 160,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 240,
-                right: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>const vegetables()));
-                  },
-                  child: const Text('Vegetables'),
+                Positioned(
+                  top: 200,
+                  right: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (builder) => const vegetables()));
+                    },
+                    child: const Text('Vegetables'),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 420, // Position from top of the screen
-                left: 20, // Position from left of the screen
-                child: Image.asset(
-                  'img/grains_1.jpg',
-                  width: 220,
-                  height: 230,
-                  fit: BoxFit.contain,
+                Positioned(
+                  top: 420, // Position from top of the screen
+                  left: 20, // Position from left of the screen
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: Image.asset(
+                      'img/grains_1.jpg',
+                      width: 160,
+                      height: 160,
+                      fit:
+                      BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 440,
-                left: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>const grains()));
-                  },
-                  child: const Text('Grains'),
+                Positioned(
+                  top: 400,
+                  left: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (builder) => const grains()),
+                      );
+                    },
+                    child: const Text('Grains'),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 420, // Position from top of the screen
-                right: 20, // Position from left of the screen
-                child:Image.asset(
-                  'img/protein_1.jpg',
-                  width: 200,
-                  height: 220,
-                  fit: BoxFit.contain,
+                Positioned(
+                  top: 420, // Position from top of the screen
+                  right: 20, // Position from left of the screen
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: Image.asset(
+                      'img/protein_1.jpg',
+                      width: 160,
+                      height: 160,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 440,
-                right: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder)=>const proteins()));
-                  },
-                  child: const Text('Proteins'),
+                Positioned(
+                  top: 400,
+                  right: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (builder) => const proteins()),
+                      );
+                    },
+                    child: const Text('Proteins'),
+                  ),
+                ), Positioned(
+                  bottom: 20,
+                  left: 20,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Back'),
+                  ),
                 ),
-              ),
 
-
-
-
-
-              Positioned(
-                top: 620,
-                right: 20,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context, MaterialPageRoute(builder: (builder)=>const FirstMealPage()));
-                  },
-                  child: const Text('Back'),
-                ),
-              ),
-
-
-              // Add other widgets as needed
-            ],
+                // Add other widgets as needed
+              ],
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
+
+
 }

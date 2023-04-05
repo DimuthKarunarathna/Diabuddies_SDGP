@@ -127,18 +127,18 @@ class _PredModelState extends State<LinearModel> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 320,
-                height: 320,
+                width: 340,
+                height: 340,
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(11),
                   border: Border.all(color: Colors.black),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Table(
                     children: [
-                      _buildTableRow("Carbs", totalCarbAmount.toDouble()),
+                      _buildTableRow("Carbohydrate", totalCarbAmount.toDouble()),
                       _buildTableRow("Calories", totalCalorieAmount.toDouble()),
                       _buildTableRow("Fat", totalFatAmount.toDouble()),
                       _buildTableRow("Fiber", totalFiberAmount.toDouble()),

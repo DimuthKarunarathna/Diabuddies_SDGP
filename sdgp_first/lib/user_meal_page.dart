@@ -41,6 +41,7 @@ class _UserMealState extends State<UserMeal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xFF6fb7e0),
         appBar: AppBar(
           title: const Text('Meal Information'),
           leading: IconButton(
