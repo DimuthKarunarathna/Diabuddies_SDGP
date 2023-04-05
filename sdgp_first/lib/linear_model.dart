@@ -138,15 +138,14 @@ class _PredModelState extends State<LinearModel> {
                   padding: const EdgeInsets.all(16.0),
                   child: Table(
                     children: [
-                      _buildTableRow(
-                          "Carbohydrates", totalCarbAmount.toDouble()),
+                      _buildTableRow("Carbs", totalCarbAmount.toDouble()),
                       _buildTableRow("Calories", totalCalorieAmount.toDouble()),
                       _buildTableRow("Fat", totalFatAmount.toDouble()),
                       _buildTableRow("Fiber", totalFiberAmount.toDouble()),
                       _buildTableRow("Protein", totalProteinAmount.toDouble()),
                       _buildTableRow("Current BGL", currentBGL.toDouble(),
                           color: Colors.red, fontSize: 20),
-                      _buildTableRow("Predicted BGL", double.parse(predValue),
+                      _buildTableRow("Future BGL", double.parse(predValue),
                           color: Colors.red, fontSize: 20),
                     ],
                   ),
@@ -184,7 +183,7 @@ class _PredModelState extends State<LinearModel> {
           height: 40,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             border: Border.all(color: Colors.black),
           ),
           child: Padding(

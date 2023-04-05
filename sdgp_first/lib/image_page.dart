@@ -16,7 +16,7 @@ class ImageChoosePage extends StatefulWidget {
 class _ImageChoosePageState extends State<ImageChoosePage> {
   File? image;
 
-  Future chooseImage(ImageSource source) async {
+  Future chooseImage(ImageSource source) async{
     try {
       final image = await ImagePicker().pickImage(source: source);
       if (image != null) {
@@ -25,12 +25,14 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
       } else {
         return;
       }
-    } on PlatformException catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Failed to pick image")));
+    }on PlatformException catch (e){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Failed to pick image")
+      )
+      );
     }
-  }
 
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +43,7 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 350,
-                ),
+                SizedBox(height: 350,),
                 SizedBox(
                   //g
                   height: 150,
@@ -57,8 +57,9 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
                       foregroundColor: MaterialStateProperty.all(Colors.green),
                     ),
                     icon: IconTheme(
-                      data: IconThemeData(size: 60, color: Colors.green),
+                      data: IconThemeData(size: 60,color: Colors.green),
                       child: Icon(Icons.camera_alt_rounded),
+
                     ), // Use a network image instead of a local asset
                     label: const Text(
                       'Capture From Camera',
@@ -66,9 +67,7 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 40,
-                ),
+                SizedBox(height: 40,),
                 SizedBox(
                   //g
                   height: 150,
@@ -82,8 +81,9 @@ class _ImageChoosePageState extends State<ImageChoosePage> {
                       foregroundColor: MaterialStateProperty.all(Colors.green),
                     ),
                     icon: IconTheme(
-                      data: IconThemeData(size: 60, color: Colors.green),
+                      data: IconThemeData(size: 60,color: Colors.green),
                       child: Icon(Icons.photo),
+
                     ), // Use a network image instead of a local asset
                     label: const Text(
                       'Select From Gallery',
