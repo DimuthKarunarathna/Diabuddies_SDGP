@@ -41,7 +41,6 @@ class _UserMealState extends State<UserMeal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFF6fb7e0),
         appBar: AppBar(
           title: const Text('Meal Information'),
           leading: IconButton(
@@ -59,125 +58,160 @@ class _UserMealState extends State<UserMeal> {
             ),*/
           ],
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: forms.length,
-                itemBuilder: (context, index) {
-                  return forms[index];
-                },
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      count += 1;
-                      if (count == 2) {
-                        forms.add(customFormField2());
-                        setState(() {});
-                        print(meal2.text);
-                      }
-                      if (count == 3) {
-                        forms.add(customFormField3());
-                        setState(() {});
-                        print(meal3.text);
-                      }
-                      if (count == 4) {
-                        forms.add(customFormField4());
-                        setState(() {});
-                        print(meal4.text);
-                      }
-                      if (count == 5) {
-                        forms.add(customFormField5());
-                        setState(() {});
-                        print(meal5.text);
-                      }
-                      if (count == 6) {
-                        forms.add(customFormField6());
-                        setState(() {});
-                        print(meal6.text);
-                      }
-                      if (count == 7) {
-                        forms.add(customFormField7());
-                        setState(() {});
-                        print(meal7.text);
-                      }
-                      if (count == 8) {
-                        forms.add(customFormField8());
-                        setState(() {});
-                        print(meal8.text);
-                      }
-                    },
-                    child: const Text("Add")),
-                const SizedBox(
-                  width: 20,
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(255, 185, 243, 252),
+                  Color.fromARGB(255, 5, 14, 73)
+                ]),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: forms.length,
+                  itemBuilder: (context, index) {
+                    return forms[index];
+                  },
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      if (count != 1) {
-                        count -= 1;
-                        forms.removeAt(count);
-                        setState(() {});
-                      }
-                    },
-                    child: const Text("Delete")),
-              ],
-            ),
-            Container(
-              width: 350,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Expanded(
-                      flex: 1,
-                      child: Text(
-                        "Blood Glucose Level :",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      )),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      width: 180,
-                      height: 60,
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.all(10),
-                      child: TextField(
-                        controller: gluLvl,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          // Add text to the label
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            // Add a border radius
-                            borderSide: const BorderSide(
-                                color: Colors.grey,
-                                width: 1.0), // Add a border color and width
-                          ),
-                        ),
-                        onChanged: (text) {
-                          // Handle text input changes
-                        },
+                  ElevatedButton(
+                      onPressed: () {
+                        count += 1;
+                        if (count == 2) {
+                          forms.add(customFormField2());
+                          setState(() {});
+                          print(meal2.text);
+                        }
+                        if (count == 3) {
+                          forms.add(customFormField3());
+                          setState(() {});
+                          print(meal3.text);
+                        }
+                        if (count == 4) {
+                          forms.add(customFormField4());
+                          setState(() {});
+                          print(meal4.text);
+                        }
+                        if (count == 5) {
+                          forms.add(customFormField5());
+                          setState(() {});
+                          print(meal5.text);
+                        }
+                        if (count == 6) {
+                          forms.add(customFormField6());
+                          setState(() {});
+                          print(meal6.text);
+                        }
+                        if (count == 7) {
+                          forms.add(customFormField7());
+                          setState(() {});
+                          print(meal7.text);
+                        }
+                        if (count == 8) {
+                          forms.add(customFormField8());
+                          setState(() {});
+                          print(meal8.text);
+                        }
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(
+                            203, 255, 255, 255)),
+                        // Set the font color here
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
                       ),
-                    ),
+                      child: const Text("Add")),
+
+                  const SizedBox(
+                    width: 20,
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          callApi();
-                        },
-                        child: const Text("Submit")),
-                  )
+                  ElevatedButton(
+                      onPressed: () {
+                        if (count != 1) {
+                          count -= 1;
+                          forms.removeAt(count);
+                          setState(() {});
+                        }
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(
+                            203, 255, 255, 255)),
+                        // Set the font color here
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                      ),
+
+                      child: const Text("Delete")),
                 ],
               ),
-            ),
-          ],
+              Container(
+                width: 350,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Expanded(
+                        flex: 1,
+                        child: Text(
+                          "Blood Glucose Level :",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white),
+                        )),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        width: 180,
+                        height: 60,
+                        margin: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
+                        child: TextField(
+                          controller: gluLvl,
+                          keyboardType: TextInputType.number,
+                          cursorColor: Colors.white,
+                          style: TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            // Add text to the label
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: BorderSide(color: Colors.white,width: 2)
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: BorderSide(color: Colors.white,width: 1)
+                            ),
+
+                          ),
+                          onChanged: (text) {
+                            // Handle text input changes
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(
+                                203, 255, 255, 255)),
+                            // Set the font color here
+                            foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                          ),
+                          onPressed: () {
+                            callApi();
+                          },
+                          child: const Text("Submit")),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ));
   }
 

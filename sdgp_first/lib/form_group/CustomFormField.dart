@@ -512,7 +512,6 @@ Container customFormField4() {
 Container customFormField5() {
   return Container(
     height: 90,
-    color: Colors.grey.shade300,
     child: Row(
       children: [
         Expanded(
@@ -723,7 +722,6 @@ Container customFormField6() {
 Container customFormField7() {
   return Container(
     height: 90,
-    color: Colors.grey.shade300,
     child: Row(
       children: [
         Expanded(

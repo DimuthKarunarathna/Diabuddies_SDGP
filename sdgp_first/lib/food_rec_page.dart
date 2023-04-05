@@ -24,6 +24,12 @@ class _FoodRecPageState extends State<FoodRecPage> {
           backgroundColor: const Color(0xFF6fb7e0),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_outlined),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FirstMealPage())); // Handle menu icon press
+              },
+            ),
             title: const Text(
               "Recommended Food",
               style: TextStyle(
