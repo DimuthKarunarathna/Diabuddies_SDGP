@@ -64,7 +64,7 @@ class _SignupPageState extends State<SignupPage> {
     double w=MediaQuery.of(context).size.width;//the width of the screen
     double h=MediaQuery.of(context).size.height;//the height of the screen
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 227, 217, 217),
+      backgroundColor: Color(0xFFC9EEFF),
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: ListView(
@@ -74,9 +74,14 @@ class _SignupPageState extends State<SignupPage> {
               width: w,
               height: h*0.2,
               decoration: BoxDecoration(
+                  color:  Color(0xFFC9EEFF),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(35),
+                      bottomRight: Radius.circular(35)
+                  ),
                   image: DecorationImage(
                       image: AssetImage(
-                          "img/diab.jpg"
+                          "img/dia_pic2.jpg"
                       ),
                       fit: BoxFit.cover// otherwise yhere is a space in corners
                   )
@@ -108,7 +113,7 @@ class _SignupPageState extends State<SignupPage> {
               decoration: BoxDecoration(
                   color: Color.fromARGB(207, 0, 26, 95),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Color.fromARGB(255, 185, 243, 252),width: 8)
+                  border: Border.all(color: Color.fromARGB(255, 32, 104, 134),width: 8)
               ),
               child: Column(
                 children: [

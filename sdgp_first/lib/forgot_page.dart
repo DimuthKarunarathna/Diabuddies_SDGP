@@ -27,6 +27,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     double w=MediaQuery.of(context).size.width;//the width of the screen
     double h=MediaQuery.of(context).size.height;//the height of the screen
     return Scaffold(
+      backgroundColor: Color(0xFFC9EEFF),
       body: Center(
         child: Container(
           height: 0.6*h,
@@ -36,7 +37,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           decoration: BoxDecoration(
               color: Color.fromARGB(207, 0, 26, 95),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Color.fromARGB(255, 185, 243, 252),width: 8)
+              border: Border.all(color: Color.fromARGB(255, 32, 104, 134),width: 8)
             ),
           child: Column(
             children: [
