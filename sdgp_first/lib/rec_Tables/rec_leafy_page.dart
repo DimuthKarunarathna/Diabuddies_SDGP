@@ -76,10 +76,11 @@ class _RecLeafyPageState extends State<RecLeafyPage> {
             Positioned(
               top: 520, // Position from top of the screen
               left: 20, // Position from left of the screen
-              child: Image.network(
-                'https://qph.cf2.quoracdn.net/main-qimg-4525698923b0e12db2a44fbbdb6d946f-lq',
-                height: 200, // Set the height of the image
-                width: 200, // Set the width of the image
+              child: Image.asset(
+                'img/leafy_2.jpg',
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
               ),
             ),
             Positioned(

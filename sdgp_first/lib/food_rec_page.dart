@@ -31,10 +31,11 @@ class _FoodRecPageState extends State<FoodRecPage> {
               Positioned(
                 top: 30, // Position from top of the screen
                 left: 20, // Position from left of the screen
-                child: Image.network(
-                  'https://www.unlockfood.ca/EatRightOntario/media/Website-images-resized/dark-leafy-greens.jpg',
-                  height: 200, // Set the height of the image
-                  width: 150, // Set the width of the image
+                child: Image.asset(
+                  'img/leafy_1.jpg',
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.contain,
                 ),
               ),
 
@@ -52,10 +53,11 @@ class _FoodRecPageState extends State<FoodRecPage> {
               Positioned(
                 top: 30,
                 right: 20,
-                child: Image.network(
-                  'https://nationaltoday.com/wp-content/uploads/2021/06/National-Herbs-and-Spices-Day-1.jpg',
+                child: Image.asset(
+                  'img/spices_1.jpg',
+                  width: 160,
                   height: 200,
-                  width: 150,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(
@@ -71,10 +73,11 @@ class _FoodRecPageState extends State<FoodRecPage> {
               Positioned(
                 top: 220, // Position from top of the screen
                 left: 20, // Position from left of the screen
-                child: Image.network(
-                  'https://www.allrecipes.com/thmb/GmTetaxdN7vrxEkdvyS1NHGJvjY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/61129_Prep_Smoothies_030_preview-2000-912a7f152ea34494b9ddaa6238dce221.jpg',
-                  height: 200, // Set the height of the image
-                  width: 150, // Set the width of the image
+                child: Image.asset(
+                  'img/fruits_1.jpg',
+                  width: 180,
+                  height: 200,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(
@@ -90,10 +93,11 @@ class _FoodRecPageState extends State<FoodRecPage> {
               Positioned(
                 top: 220, // Position from top of the screen
                 right: 20, // Position from left of the screen
-                child: Image.network(
-                  'https://www.portugalresident.com/wp-content/uploads/2014/04/110414_it_vegetables.jpg',
-                  height: 200, // Set the height of the image
-                  width: 150, // Set the width of the image
+                child: Image.asset(
+                  'img/veg_1.jpg',
+                  width: 180,
+                  height: 200,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(
@@ -109,10 +113,11 @@ class _FoodRecPageState extends State<FoodRecPage> {
               Positioned(
                 top: 420, // Position from top of the screen
                 left: 20, // Position from left of the screen
-                child: Image.network(
-                  'https://static.toiimg.com/thumb/79547188.cms?width=400&height=300&resizemode=4&imgsize=188326',
-                  height: 200, // Set the height of the image
-                  width: 150, // Set the width of the image
+                child: Image.asset(
+                  'img/grains_1.jpg',
+                  width: 220,
+                  height: 230,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(
@@ -128,10 +133,11 @@ class _FoodRecPageState extends State<FoodRecPage> {
               Positioned(
                 top: 420, // Position from top of the screen
                 right: 20, // Position from left of the screen
-                child: Image.network(
-                  'https://149777215.v2.pressablecdn.com/wp-content/uploads/2021/07/dsm-boosting-protein-intake-shutterstock-684710068.jpg',
-                  height: 200, // Set the height of the image
-                  width: 150, // Set the width of the image
+                child:Image.asset(
+                  'img/protein_1.jpg',
+                  width: 200,
+                  height: 220,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(

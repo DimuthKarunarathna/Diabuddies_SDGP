@@ -100,10 +100,10 @@ class _PredModelState extends State<LinearModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF6fb7e0),
+      backgroundColor: const Color(0xFF6fb7e0),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           "Result",
           style: TextStyle(
             fontSize: 25.0,
@@ -114,7 +114,7 @@ class _PredModelState extends State<LinearModel> {
         centerTitle: true,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Colors.blue,

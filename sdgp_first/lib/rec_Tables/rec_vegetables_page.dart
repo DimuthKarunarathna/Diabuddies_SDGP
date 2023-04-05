@@ -76,10 +76,11 @@ class _vegetablesState extends State<vegetables> {
             Positioned(
               top: 520, // Position from top of the screen
               left: 20, // Position from left of the screen
-              child: Image.network(
-                'https://belvoir-university-health.s3.amazonaws.com/media/2018/02/07180456/diabetes-diet-vegetables-e1470979090921.jpg',
-                height: 100, // Set the height of the image
-                width: 100, // Set the width of the image
+              child:Image.asset(
+                'img/veg_2.jpg',
+                width: 150,
+                height: 150,
+                fit: BoxFit.contain,
               ),
             ),
             Positioned(

@@ -69,10 +69,11 @@ class _proteinssState extends State<proteins> {
             Positioned(
               top: 520, // Position from top of the screen
               left: 20, // Position from left of the screen
-              child: Image.network(
-                'https://c.ndtvimg.com/2019-04/s42bereg_proteins_625x300_18_April_19.jpg?im=Resize=(1230,900)',
-                height: 150, // Set the height of the image
-                width: 150, // Set the width of the image
+              child: Image.asset(
+                'img/protein_2.jpg',
+                width: 150,
+                height: 150,
+                fit: BoxFit.contain,
               ),
             ),
             Positioned(

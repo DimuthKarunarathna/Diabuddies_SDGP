@@ -46,16 +46,16 @@ class _UserMealState extends State<UserMeal> {
           leading: IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
-              // Handle menu icon press
+              Navigator.push(context, MaterialPageRoute(builder: (builder)=>const FirstMealPage())); // Handle menu icon press
             },
           ),
-          actions: [
-            IconButton(
+          actions: const [
+            /*IconButton(
               icon: const Icon(Icons.person),
               onPressed: () {
                 // Handle home icon press
               },
-            ),
+            ),*/
           ],
         ),
         body: Column(

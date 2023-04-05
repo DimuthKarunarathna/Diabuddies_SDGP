@@ -358,7 +358,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Invalid input'),
-            content: Text(
+            content: const Text(
                 'Please Enter Year Between 1-40 '),
             actions: [
               TextButton(
@@ -383,13 +383,13 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Patient Details Form'),
+        title: const Text('Patient Details Form'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          Center(
+          const Center(
             child: Text(
               'Gender',
               style: TextStyle(
@@ -398,7 +398,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -408,10 +408,10 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
                   children: [
                     CircleAvatar(
                       backgroundColor: _gender == 'male' ?  Colors.blue : Colors.blue.withOpacity(0.3),
-                      child: Icon(Icons.male),
+                      child: const Icon(Icons.male),
                     ),
-                    SizedBox(height: 5),
-                    Text('Male'),
+                    const SizedBox(height: 5),
+                    const Text('Male'),
                   ],
                 ),
               ),
@@ -423,17 +423,17 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
                       backgroundColor: _gender == 'female'
                           ? Colors.blue
                           : Colors.blue.withOpacity(0.3),
-                      child: Icon(Icons.female),
+                      child: const Icon(Icons.female),
                     ),
-                    SizedBox(height: 5),
-                    Text('Female'),
+                    const SizedBox(height: 5),
+                    const Text('Female'),
                   ],
                 ),
               ),
             ],
           ),
-          SizedBox(height: 25),
-          Center(
+          const SizedBox(height: 25),
+          const Center(
             child: Text(
               'Diabetic Type',
               style: TextStyle(
@@ -442,22 +442,22 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: RadioListTile<String>(
-                  title: Text('Type 1 Diabetic'),
+                  title: const Text('Type 1 Diabetic'),
                   value: 'type1',
                   groupValue: _diabeticType,
                   onChanged: _selectDiabeticType,
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: RadioListTile<String>(
-                  title: Text('Type 2 Diabetic'),
+                  title: const Text('Type 2 Diabetic'),
                   value: 'type2',
                   groupValue: _diabeticType,
                   onChanged: _selectDiabeticType,
@@ -466,8 +466,8 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             ],
           ),
 
-          SizedBox(height: 25),
-          Center(
+          const SizedBox(height: 25),
+          const Center(
             child: Text(
               'Height',
               style: TextStyle(
@@ -477,10 +477,10 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             ),
           ),
 
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           HeightInputWidget(onHeightChanged: _onHeightChanged),
-          SizedBox(height: 25),
-          Center(
+          const SizedBox(height: 25),
+          const Center(
             child: Text(
               'Age & Weight',
               style: TextStyle(
@@ -490,14 +490,14 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             ),
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
             AgeInputWidget(
               onAgeChanged: (age, weight) => _onAgeChanged(age, weight),
             ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
 
 
-          Center(
+          const Center(
             child: Text(
               'Smoking History',
               style: TextStyle(
@@ -506,15 +506,15 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           SmokeInputWidget(onSmokeChanged:_onSmokeChanged),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
 
 
 
 
           Column(
-            children: [
+            children: const [
               Center(
                 child: Text(
                   'Activity Level',
@@ -527,7 +527,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             ],
           ),
           RadioListTile<String>(
-            title: Text('Low level of activity'),
+            title: const Text('Low level of activity'),
             value: 'low',
             groupValue: _activityLevel,
             onChanged: (value) {
@@ -538,7 +538,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
           ),
 
           RadioListTile<String>(
-            title: Text('Moderate level of activity'),
+            title: const Text('Moderate level of activity'),
             value: 'moderate',
             groupValue: _activityLevel,
             onChanged: (value) {
@@ -548,7 +548,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             },
           ),
           RadioListTile<String>(
-            title: Text('High level of activity'),
+            title: const Text('High level of activity'),
             value: 'high',
             groupValue: _activityLevel,
             onChanged: (value) {
@@ -557,9 +557,9 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
               });
             },
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Column(
-            children: [
+            children: const [
               Center(
                 child: Text(
                   'History of Alcohol Drinking',
@@ -576,7 +576,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             children: [
               Flexible(
                 child: RadioListTile<String>(
-                  title: Text('Drinker'),
+                  title: const Text('Drinker'),
                   value: 'Drinker',
                   groupValue: _alcoholConsumption,
                   onChanged: (value) {
@@ -588,7 +588,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
               ),
               Flexible(
                 child: RadioListTile<String>(
-                  title: Text('Non Drinker'),
+                  title: const Text('Non Drinker'),
                   value: 'Non Drinker',
                   groupValue: _alcoholConsumption,
                   onChanged: (value) {
@@ -607,7 +607,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
             child:
               ElevatedButton(
                 onPressed: _onSubmits,
-                child: Text('Submit'),
+                child: const Text('Submit'),
               ),
 
             ),
@@ -615,7 +615,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
         ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -642,7 +642,7 @@ class _PatientDetailsFormState extends State<PatientDetailsForm> {
         currentIndex: _selectedIndex,
         onTap: _onBarItemTapped,
       ),
-
+*/
     );
   }
 }
