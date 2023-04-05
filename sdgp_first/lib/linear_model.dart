@@ -59,7 +59,7 @@ class _PredModelState extends State<LinearModel> {
     print("nutrient data list in screen 2 : $nutrientData");
 
     List<num> numList =
-        nutrientData.map((int value) => value.toDouble()).toList();
+    nutrientData.map((int value) => value.toDouble()).toList();
     // var flatList = input.expand((e) => e).toList(); // Flatten nested list
     var floatList = Float32List.fromList(
         numList.map((e) => e.toDouble()).toList()); // Convert to Float32List
@@ -143,10 +143,10 @@ class _PredModelState extends State<LinearModel> {
                       _buildTableRow("Fat", totalFatAmount.toDouble()),
                       _buildTableRow("Fiber", totalFiberAmount.toDouble()),
                       _buildTableRow("Protein", totalProteinAmount.toDouble()),
-                      _buildTableRow("Current BGL", currentBGL.toDouble(),
-                          color: Colors.red, fontSize: 20),
-                      _buildTableRow("Future BGL", double.parse(predValue),
-                          color: Colors.red, fontSize: 20),
+                      _buildTableRow(
+                          "Current BGL", currentBGL.toDouble(), color: Colors.red, fontSize: 23),
+                      _buildTableRow("Predicted BGL", double.parse(predValue),
+                          color: Colors.red, fontSize: 23),
                     ],
                   ),
                 ),
@@ -157,6 +157,7 @@ class _PredModelState extends State<LinearModel> {
       ),
     );
   }
+
 
   TableRow _buildTableRow(String label, double value,
       {Color color = Colors.green, double fontSize = 20}) {
