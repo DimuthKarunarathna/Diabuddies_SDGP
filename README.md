@@ -1,4 +1,4 @@
-# Diabuddies_SDGP (Work-In-Progress)
+# Diabuddies_SDGP 
 Provides a Machine Learning solution for predicting the blood glucose level based on food intake for type 1 and type 2 diabetes patients. The app was developed with **Python, Flutter** and **Firebase**. 
 
 ## Features
@@ -13,6 +13,9 @@ Provides a Machine Learning solution for predicting the blood glucose level base
 
 ## Wireframes (not the final product)
 <table>
+    <tr>
+    <td><img src="screenshots/screenshot 1.jpg" alt="2" width = 1000px></td>
+   </tr> 
      <tr>
     <td><img src="screenshots/screenshot 1.jpg" alt="2" width = 1000px></td>
    </tr> 
